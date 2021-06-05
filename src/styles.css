@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --default-bg-color: #fff;
+  --default-text-color: #939393;
+  --default-nav-bg-color: #fff;
+  --default-nav-text-color: black;
+  --default-nav-border-color: rgba(166, 166, 166, 0.42);
+  --default-primary-color: #6cabbb;
+}
+
+* {
+
+}
+
+html {
+  background-color: var(--default-bg-color);
+  color: var(--default-text-color);
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  text-decoration: none;
+  height: 40px;
+}
+
+.btn-primary {
+  border: 1px solid #6cabbb;
+  border-radius: 30px;
+  text-align: center;
+  padding: 5px 5px;
+  margin: 2px 2px 2px 2px;
+}

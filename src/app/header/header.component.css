@@ -31,6 +31,7 @@
   margin: 2px 2px 0px 2px;
   transition: 0.6s;
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .toolbar .item:hover {
@@ -65,8 +66,6 @@
   pointer-events: none;
   text-decoration: none;
 }
-
-
 
 .no-flex {
   flex: 0 !important;

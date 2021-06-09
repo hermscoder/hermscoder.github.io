@@ -1,0 +1,51 @@
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--default-nav-bg-color);
+  color: var(--default-nav-text-color);
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--default-nav-bg-color);
+  min-width: 104px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.top {
+  bottom: 50px;
+}
+
+.right {
+  left: 0px;
+}
+
+.left {
+  left: -50px;
+}
+
+.bottom {
+  top: 0px;
+  margin-top: -15px;
+}
+
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+

@@ -1,0 +1,70 @@
+.hc-modal {
+  /* fixing the modal across the entire screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* this index must be bigger than the .hc-modal-backgruond */
+  z-index: 1000;
+
+  /* enabling scroll for tall modals */
+  overflow: auto;
+}
+
+.hc-modal-body {
+  position: inherit;
+  padding: 20px;
+  background: var(--default-bg-color);
+  width: min-content;
+  border-radius: 5px;
+  /* margin that shows a piece of the background */
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+body.hc-modal-open {
+  /* this is used to hide the main scrollbar when modal windows is open */
+  overflow: hidden;
+}
+
+.hc-modal-background {
+  /* fixing the background across the entire screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* semi-transparent black */
+  background-color: #000;
+  opacity: 0.6;
+
+  /* this index must be bellow the .hc-modal and above everything else */
+  z-index: 900;
+  transition: all .1s ease;
+}
+
+.close {
+  color: var(--default-text-color);
+  line-height: 25px;
+  position: absolute;
+  top: 0px;
+  left: 93.5%;
+  right: 0px;
+  bottom: 0px;
+  text-align: center;
+  width: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.close:hover {
+  transform: scaleX(1.2);
+}

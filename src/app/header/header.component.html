@@ -8,7 +8,23 @@
     Portfolio
   </a>
   <span class="v-ruler"></span>
-  <a href="https://twitter.com/angular" title="Login" class="item no-flex">
+  <a title="Login" class="item no-flex" (click)="modalService.open('loginModal')" *ngIf="!authService.isAuthenticated()">
     Login
   </a>
+  <div *ngIf="authService.isAuthenticated()" style="margin-top: 20px">
+    <a title="Options" class="item no-flex" #dropDownToggler>
+      Options
+    </a>
+    <hc-dropdown [dropDownToggle]="dropDownToggler" dropDownDirection="left bottom">
+      <button class="btn btn-light">Edit Portfolio</button>
+      <button class="btn btn-light">New Post</button>
+      <button class="btn btn-light" (click)="authService.logout()">Logout</button>
+    </hc-dropdown>
+  </div>
 </div>
+
+<hc-modal id="loginModal" modalWidth="400px">
+  <hc-login (onCancel)="modalService.close('loginModal')" (onLoginSuccessfull)="modalService.close('loginModal');loginSuccessfull()"></hc-login>
+</hc-modal>
+
+

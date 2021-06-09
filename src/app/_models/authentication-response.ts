@@ -1,10 +1,10 @@
 export class AuthenticationResponse {
   authenticationToken: string;
-  email: string;
+  user: any;
 
 
   constructor(authenticationToken: string, email: string) {
     this.authenticationToken = authenticationToken;
-    this.email = email;
+    this.user = email;
   }
 }

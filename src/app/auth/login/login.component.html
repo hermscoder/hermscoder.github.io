@@ -1,16 +1,14 @@
-<div class="form" [formGroup]="loginForm">
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-item">
-    <label>Email:</label>
-    <input type="text" [formControlName]="'email'" placeholder="Email" required=""/>
+    <input type="text" [formControlName]="'email'" placeholder="Email" required="" class="input-text"/>
   </div>
   <div class="form-item">
-    <label>Password:</label>
-    <input type="password" [formControlName]="'password'" placeholder="Password" required=""/>
+    <input type="password" [formControlName]="'password'" placeholder="Password" required="" class="input-text"/>
   </div>
   <div class="d-flex mt-2">
     <a title="Close" class="im-flex d-flex" style="text-decoration: none" (click)="cancel()">
       <button class="btn btn-default im-flex">Cancel</button>
     </a>
-    <button class="btn btn-primary im-flex" (click)="onSubmit()">Login</button>
+    <button class="btn btn-primary im-flex" type="submit">Login</button>
   </div>
-</div>
+</form>

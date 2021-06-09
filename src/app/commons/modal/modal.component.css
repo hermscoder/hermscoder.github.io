@@ -53,6 +53,7 @@ body.hc-modal-open {
   color: var(--default-text-color);
   line-height: 25px;
   position: absolute;
+  height: min-content;
   top: 0px;
   left: 93.5%;
   right: 0px;

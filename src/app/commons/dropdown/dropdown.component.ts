@@ -7,7 +7,7 @@ import {Component, ElementRef, HostListener, Input, OnInit} from '@angular/core'
 })
 export class DropdownComponent implements OnInit {
 
-  private element: any;
+  private readonly element: any;
   private dropDownContentDiv: any;
   @Input() dropDownToggle: any;
   @Input() dropDownDirection: string = 'left bottom';
@@ -17,8 +17,6 @@ export class DropdownComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.element.children);
-
     if(this.element) {
       this.dropDownContentDiv = this.element.firstElementChild.firstElementChild;
     }
@@ -32,7 +30,6 @@ export class DropdownComponent implements OnInit {
     this.dropDownToggle.addEventListener('click', (el: any) => {
       that.show();
     });
-    console.log(this.dropDownToggle.eventListeners());
   }
   @HostListener('document:click', ['$event.target'])
   public onClick(targetElement: any) {
@@ -43,12 +40,10 @@ export class DropdownComponent implements OnInit {
     }
   }
   show(){
-    console.log(this.dropDownContentDiv);
     this.dropDownContentDiv.style.display = 'block';
   }
 
   hide(){
-    console.log(this.dropDownContentDiv);
     this.dropDownContentDiv.style.display = 'none';
   }
 

@@ -13,7 +13,7 @@
   </a>
   <div *ngIf="authService.isAuthenticated()" style="margin-top: 20px">
     <a title="Options" class="item no-flex" #dropDownToggler>
-      Options
+      {{authService.currentUser.name}}
     </a>
     <hc-dropdown [dropDownToggle]="dropDownToggler" dropDownDirection="left bottom">
       <button class="btn btn-light">Edit Portfolio</button>

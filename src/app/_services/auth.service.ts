@@ -6,20 +6,22 @@ import {AuthenticationResponse} from "../_models/authentication-response";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {LocalStorageService} from "ngx-webstorage";
+import {UserSummarised} from "../_models/user-summarised";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private baseUrl = environment.apiUrl + 'api/auth/';
-
+  public currentUser!: UserSummarised;
   constructor(private httpClient: HttpClient, private localStorageSerive: LocalStorageService) { }
 
   login(authenticationRequest: AuthenticationRequest): Observable<boolean> {
     return this.httpClient.post<AuthenticationResponse>(this.baseUrl + 'login', authenticationRequest)
       .pipe(map(data => {
         this.localStorageSerive.store("authenticationToken", data.authenticationToken);
-        this.localStorageSerive.store("email", data.email);
+        this.localStorageSerive.store("user",  JSON.stringify(data.user));
+        this.currentUser = data.user;
         return true;
       }));
   }
@@ -30,6 +32,6 @@ export class AuthService {
 
   logout() {
     this.localStorageSerive.clear("authenticationToken");
-    this.localStorageSerive.clear("email");
+    this.localStorageSerive.clear("user");
   }
 }

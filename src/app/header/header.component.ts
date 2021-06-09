@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {AuthService} from "../_services/auth.service";
 
 @Component({
-  selector: 'app-header',
+  selector: 'hc-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -18,6 +18,11 @@ export class HeaderComponent implements OnInit {
 
 
   loginSuccessfull() {
+    this.router.navigate(['']);
+  }
+
+  logout() {
+    this.authService.logout();
     this.router.navigate(['']);
   }
 }

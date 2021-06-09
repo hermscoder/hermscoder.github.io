@@ -10,11 +10,12 @@ import { appRoutes } from './routes';
 import { ListPostsComponent } from './post/list-posts/list-posts.component';
 import { PostComponent } from './post/post/post.component';
 import { PortfolioComponent } from './portfolio/portfolio/portfolio.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxWebstorageModule} from "ngx-webstorage";
-import { ModalComponent } from './commons/modal/modal.component';
 import {CommonsModule} from "./commons";
+import {HttpClientInterceptor} from "./_interceptors/http-client-interceptor";
+import { PostCardComponent } from './post/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {CommonsModule} from "./commons";
     HomeComponent,
     ListPostsComponent,
     PostComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    PostCardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import {CommonsModule} from "./commons";
     ReactiveFormsModule,
     CommonsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

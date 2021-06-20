@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostDto} from "../../_models/post-dto";
+import {PostForListDto} from "../../_models/post-for-list-dto";
+import {ActivatedRoute} from "@angular/router";
+import {PostDetailsDto} from "../../_models/post-details-dto";
+import {ResolvedData} from "../../_models/resolved-data";
 
 @Component({
   selector: 'hc-post',
@@ -7,11 +10,21 @@ import {PostDto} from "../../_models/post-dto";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  @Input() post!: PostDto;
 
-  constructor() { }
+  post: PostDetailsDto | any = {};
+  error: any = null;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.data.subscribe(data => {
+      let resolvedData = data['post'];
+      if(resolvedData.data != null) {
+        this.post = resolvedData.data;
+      } else {
+        this.error = resolvedData.error;
+      }
+    });
   }
 
 

@@ -1,16 +1,19 @@
 .toolbar {
+  z-index: 1;
   top: 0px;
   left: 0;
   right: 0;
-  height: 60px;
+  height: var(--header-height);
   display: flex;
   align-items: center;
+  position: fixed;
   background-color: var(--default-nav-bg-color);
   color: var(--default-nav-text-color);
   font-weight: 600;
   border-bottom: 1px solid var(--default-nav-border-color);
   padding: 5px 10px 0px 10px;
-  font-family: 'Big Shoulders Display', cursive;
+  font-family: var(--default-btn-font-family);
+  /*min-width: var(--app-min-width);*/
 }
 
 
@@ -51,6 +54,12 @@
 }
 .toolbar .item:hover:after { transform: scaleX(0.9); }
 
+.is-active{
+  color: inherit !important;
+  opacity: 1 !important;
+  font-size: 120% !important;
+}
+
 .v-ruler {
   pointer-events: none;
   text-decoration: none;
@@ -70,3 +79,13 @@
 .no-flex {
   flex: 0 !important;
 }
+
+.separator hr {
+  pointer-events: none;
+  text-decoration: none;
+  height: 1px;
+  background-color: var(--default-nav-text-color);
+  width: 30%;
+  opacity: 0.1;
+}
+

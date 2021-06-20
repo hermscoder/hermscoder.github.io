@@ -3,6 +3,7 @@ import {ModalComponent} from "../commons/modal/modal.component";
 import {ModalService} from "../commons";
 import {Router} from "@angular/router";
 import {AuthService} from "../_services/auth.service";
+import {ROUTES} from "../routes";
 
 @Component({
   selector: 'hc-header',
@@ -11,6 +12,7 @@ import {AuthService} from "../_services/auth.service";
 })
 export class HeaderComponent implements OnInit {
 
+  routes = ROUTES;
   constructor(public modalService: ModalService, private router: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
@@ -18,11 +20,11 @@ export class HeaderComponent implements OnInit {
 
 
   loginSuccessfull() {
-    this.router.navigate(['']);
+    this.router.navigate([ROUTES.HOME.url]);
   }
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['']);
+    this.router.navigate([ROUTES.HOME.url]);
   }
 }

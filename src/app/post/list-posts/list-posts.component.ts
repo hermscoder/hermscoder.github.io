@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from "../../_services/post.service";
-import {PostDto} from "../../_models/post-dto";
+import {PostForListDto} from "../../_models/post-for-list-dto";
 
 @Component({
   selector: 'hc-list-posts',
@@ -9,7 +9,7 @@ import {PostDto} from "../../_models/post-dto";
 })
 export class ListPostsComponent implements OnInit {
 
-  posts: PostDto[] = [];
+  posts: PostForListDto[] = [];
 
   constructor(private postService: PostService) { }
 
@@ -22,7 +22,7 @@ export class ListPostsComponent implements OnInit {
   }
 
   listWithPagination() {
-    this.postService.listPosts().subscribe((posts: PostDto[]) => {
+    this.postService.listPosts().subscribe((posts: PostForListDto[]) => {
       this.posts = posts;
     }, errorResponse => {
       console.error(errorResponse);

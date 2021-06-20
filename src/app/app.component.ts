@@ -12,7 +12,9 @@ export class AppComponent implements OnInit {
   title = 'Herms Coder';
 
 
-  constructor(private localStorageService: LocalStorageService, private authService: AuthService) { }
+  constructor(private localStorageService: LocalStorageService,
+              private authService: AuthService) {
+  }
 
   ngOnInit() {
     // setting the current user now because this will be executed

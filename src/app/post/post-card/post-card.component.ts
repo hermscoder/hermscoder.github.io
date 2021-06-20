@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostDto} from "../../_models/post-dto";
+import {PostForListDto} from "../../_models/post-for-list-dto";
+import {NavigationExtras, Router} from "@angular/router";
+import {ROUTES} from "../../routes";
 
 @Component({
   selector: 'hc-post-card',
@@ -8,10 +10,15 @@ import {PostDto} from "../../_models/post-dto";
 })
 export class PostCardComponent implements OnInit {
 
-  @Input() post!: PostDto;
-  constructor() { }
+  @Input() post!: PostForListDto;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  goToPost(id: any){
+    this.router.navigate([ROUTES.POST_DETAILS.url, id]);
+  }
+
 }
+

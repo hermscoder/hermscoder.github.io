@@ -1,10 +1,10 @@
-<div class="toolbar" role="banner">
+<nav class="toolbar" role="banner">
   <a class="logo" [routerLink]="['/']">Herms Coder</a>
-  <a title="Posts" class="item" [routerLink]="['/posts']">
+  <a title="Posts" class="item" [routerLink]="[routes.LIST_POSTS.url]" routerLinkActive="is-active">
     <span>Posts</span>
   </a>
   <span class="v-ruler"></span>
-  <a title="Portfolio" class="item" [routerLink]="['/portfolio']">
+  <a title="Portfolio" class="item" [routerLink]="[routes.PORTFOLIO.url]" [routerLinkActive]="'is-active'">
     Portfolio
   </a>
   <span class="v-ruler"></span>
@@ -16,12 +16,14 @@
       {{authService.currentUser.name}}
     </a>
     <hc-dropdown [dropDownToggle]="dropDownToggler" dropDownDirection="left bottom">
-      <button class="btn btn-light">Edit Portfolio</button>
-      <button class="btn btn-light">New Post</button>
-      <button class="btn btn-light" (click)="logout()">Logout</button>
+      <button class="btn btn-link mb-0 mt-0">Edit portfolio</button>
+      <span class="separator"><hr></span>
+      <button class="btn btn-link mb-0 mt-0" [routerLink]="[routes.WRITE_POST.url]">Write a posts</button>
+      <span class="separator"><hr></span>
+      <button class="btn btn-link mb-0 mt-0" (click)="logout()">Logout</button>
     </hc-dropdown>
   </div>
-</div>
+</nav>
 
 <hc-modal id="loginModal" modalWidth="400px">
   <hc-login (onCancel)="modalService.close('loginModal')" (onLoginSuccessfull)="modalService.close('loginModal');loginSuccessfull()"></hc-login>

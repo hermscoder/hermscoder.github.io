@@ -1,2 +1,19 @@
-<p>{{post.title}}</p>
-<div [innerHTML]="post.text"></div>
+<div *ngIf="error == null; else errorDiv">
+  <article class="post">
+    <div class="post-information">
+      {{post.author.name}}
+      <div class="small">{{post.date | dateFormat: 'MMM DD'}} · {{post.readingTime}} min read</div>
+    </div>
+    <h1 class="post-title">{{post.title}}</h1>
+    <h3 class="post-subtitle">{{post.subTitle}}</h3>
+    <div class="post-image" >
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwohnungnein.icu%2Fzcdooy%2F3rdaBj4bVgNOfurQhUUuAgHaEI.jpg&f=1&nofb=1" [alt]="post.title">
+    </div>
+    <div class="post-content" [innerHTML]="post.text"></div>
+  </article>
+</div>
+<ng-template #errorDiv>
+  <div>
+    {{ error }}
+  </div>
+</ng-template>

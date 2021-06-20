@@ -14,12 +14,14 @@
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
+  padding: 10px 0;
   display: none;
   position: absolute;
   background-color: var(--default-nav-bg-color);
   min-width: 104px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  border: 1px solid #d5d5d5;
 }
 
 .top {

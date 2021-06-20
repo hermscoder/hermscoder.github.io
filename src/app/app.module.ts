@@ -16,6 +16,11 @@ import {NgxWebstorageModule} from "ngx-webstorage";
 import {CommonsModule} from "./commons";
 import {HttpClientInterceptor} from "./_interceptors/http-client-interceptor";
 import { PostCardComponent } from './post/post-card/post-card.component';
+import {SafeHtmlPipe} from "./_pipes/safe-html-pipe";
+import {HtmlToPlaintextPipe} from "./_pipes/html-to-plaintext-pipe";
+import {DateFormatPipe} from "./_pipes/date-format-pipe";
+import {PostResolver} from "./_resolvers/PostResolver";
+import { WritePostComponent } from './post/write-post/write-post.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,11 @@ import { PostCardComponent } from './post/post-card/post-card.component';
     ListPostsComponent,
     PostComponent,
     PortfolioComponent,
-    PostCardComponent
+    PostCardComponent,
+    SafeHtmlPipe,
+    HtmlToPlaintextPipe,
+    DateFormatPipe,
+    WritePostComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,10 @@ import { PostCardComponent } from './post/post-card/post-card.component';
     ReactiveFormsModule,
     CommonsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true}],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},
+    PostResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

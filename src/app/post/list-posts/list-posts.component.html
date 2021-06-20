@@ -1,5 +1,27 @@
-<div class="container">
-  <div *ngFor="let post of posts">
-    <hc-post-card [post]="post"></hc-post-card>
+<div class="content">
+  <div class="post-categories" id="post-categorie-mobile">
+    <h2>Categories</h2>
+    <button class="btn btn-primary">Java</button>
+    <button class="btn btn-primary">Life Style</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
+  </div>
+  <div class="container">
+    <div *ngFor="let post of posts">
+      <hc-post-card [post]="post"></hc-post-card>
+    </div>
+  </div>
+  <div class="post-categories" id="post-categorie-desktop">
+    <h2>Categories</h2>
+    <button class="btn btn-primary">Java</button>
+    <button class="btn btn-primary">Life Style</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
+    <button class="btn btn-primary">Best practice</button>
   </div>
 </div>

@@ -1,0 +1,21 @@
+<div class="content">
+  <form class="form">
+    <div class="form-item">
+      <label>Title:</label>
+      <input type="text" [formControlName]="'title'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label>Subtitle:</label>
+      <input type="text" [formControlName]="'subtitle'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label>Reading Time:</label>
+      <input type="number" [formControlName]="'readingTime'"
+             required="true"
+             class="input-text mr-1"
+             style="width: 50px"
+             (keypress)="readingTime.value.length == 2 ? false: true" #readingTime/>
+      min
+    </div>
+  </form>
+</div>

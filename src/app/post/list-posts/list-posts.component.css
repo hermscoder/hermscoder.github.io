@@ -1,3 +1,105 @@
-.container {
-  align-items: center;
+h2 {
+  font-family: var(--default-btn-font-family);
+  font-weight: bold;
 }
+
+.content {
+  display: flex;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  display: table-caption;
+}
+
+.post-categories {
+  display: block;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.post-categories .btn:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--default-primary-color);
+  transform: translateY(-0.25em);
+}
+
+#post-categorie-mobile {
+  display: none;
+}
+
+@media only screen
+and (min-width: 200px) {
+  #post-categorie-mobile {
+    display: block;
+  }
+
+  #post-categorie-desktop {
+    display: none;
+  }
+  .content {
+    display: block;
+  }
+}
+
+@media only screen
+and (min-width: 481px) {
+  .post-categories {
+    display: block;
+    width: 25%
+  }
+  .content {
+    display: flex;
+  }
+  #post-categorie-mobile {
+    display: none;
+  }
+
+  #post-categorie-desktop {
+    display: block;
+  }
+}
+
+@media only screen
+and (min-width: 641px) {
+  .post-categories {
+    display: block;
+    width: 45%;
+  }
+  .content {
+    display: flex;
+  }
+  #post-categorie-mobile {
+    display: none;
+  }
+
+  #post-categorie-desktop {
+    display: block;
+  }
+}
+
+
+/*MEDIA QUERY FOR TABLETS*/
+@media only screen
+and (min-width: 961px) {
+  .post-categories {
+    display: block;
+    width: 90%;
+  }
+  .content {
+    display: flex;
+  }
+}
+
+/*MEDIA QUERY FOR LAPTOPS AND DESKTOP*/
+@media only screen
+and (min-width: 992px) {
+  .post-categories {
+    display: block;
+    width: 90%;
+  }
+  .content {
+    display: flex;
+  }
+}
+

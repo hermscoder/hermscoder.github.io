@@ -218,3 +218,7 @@ input[type=number] {
 .small {
   font-size: smaller;
 }
+
+.w100 {
+  width: 100%;
+}

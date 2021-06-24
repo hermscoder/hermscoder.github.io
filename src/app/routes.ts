@@ -13,7 +13,7 @@ export const ROUTES = {
   LIST_POSTS: { url: 'posts', title: 'Posts' },
   POST_DETAILS: { url: 'posts/', title: 'Post' },
   WRITE_POST: { url: 'posts/write', title: 'Write post' },
-  EDIT_POST: { url: 'posts/edit', title: 'Edit post' },
+  EDIT_POST: { url: 'posts/edit/', title: 'Edit post' },
   PORTFOLIO: { url: 'portfolio', title: 'Portifolio' },
   all(): RouteData[] {
     return [this.HOME,
@@ -38,7 +38,6 @@ export const appRoutes: Routes = [
       { path: ROUTES.EDIT_POST.url + ':id', component: WritePostComponent, resolve: { post: PostResolver }},
       { path: ROUTES.POST_DETAILS.url + ':id', component: PostComponent, resolve: { post: PostResolver }},
       { path: ROUTES.PORTFOLIO.url, component: PortfolioComponent },
-      // { path: 'taskDetails/:id', component: TaskSomeoneDetailComponent, resolve: {taskSomeone: TaskSomeoneDetailResolver} },
     ]
   }
 ];

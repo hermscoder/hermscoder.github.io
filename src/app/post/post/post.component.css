@@ -34,6 +34,34 @@
   width: 100%;
 }
 
+.post-options {
+  width: 10%;
+  position: fixed;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-options .btn {
+  width: fit-content;
+}
+.post-options .btn:hover .label{
+  font-size: inherit;
+  margin-left: 8px;
+  opacity: 1;
+}
+
+.post-options .label {
+  max-width: 0;
+  opacity: 0;
+  font-size: 0px;
+  max-height: 1em;
+  white-space: nowrap;
+
+  transition: .2s;
+}
+
+
 .post-image img {
   width: 80%;
   height: auto;
@@ -61,5 +89,26 @@ and (max-width: 850px) {
   .post-image img {
     width: 100%;
     height: auto;
+  }
+  .post-options {
+    position: fixed;
+    width: 15%;
+    right: 0;
+    align-items: flex-end;
+  }
+  .post-options .label {
+    max-width: 0;
+    font-size: 0px;
+    margin-left: -1px;
+    opacity: 0;
+    max-height: 1em;
+    white-space: nowrap;
+
+    transition: .2s;
+  }
+  .post-options .label {
+    font-size: inherit;
+    margin-left: 8px;
+    opacity: 1;
   }
 }

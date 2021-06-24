@@ -21,6 +21,19 @@ import {HtmlToPlaintextPipe} from "./_pipes/html-to-plaintext-pipe";
 import {DateFormatPipe} from "./_pipes/date-format-pipe";
 import {PostResolver} from "./_resolvers/PostResolver";
 import { WritePostComponent } from './post/write-post/write-post.component';
+import {AngularEditorModule} from "@kolkov/angular-editor";
+import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {
+  faArrowCircleLeft,
+  faBackspace,
+  faBackward, faCheck,
+  faCheckSquare, faChevronCircleLeft,
+  faChevronLeft,
+  faPen,
+  faPenSquare,
+  faSquare
+} from "@fortawesome/free-solid-svg-icons";
+import {faStackOverflow, faGithub, faMedium, faCodepen} from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   declarations: [
@@ -44,7 +57,9 @@ import { WritePostComponent } from './post/write-post/write-post.component';
     NgxWebstorageModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
-    CommonsModule
+    CommonsModule,
+    AngularEditorModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},
@@ -52,4 +67,8 @@ import { WritePostComponent } from './post/write-post/write-post.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faSquare, faCheckSquare, faSquare, faCheckSquare, faStackOverflow, faGithub, faMedium, faPen, faPenSquare, faArrowCircleLeft, faCheck);
+  }
+}

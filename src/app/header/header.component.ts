@@ -12,7 +12,7 @@ import {ROUTES} from "../routes";
 })
 export class HeaderComponent implements OnInit {
 
-  routes = ROUTES;
+  ROUTES = ROUTES;
   constructor(public modalService: ModalService, private router: Router, public authService: AuthService) { }
 
   ngOnInit(): void {

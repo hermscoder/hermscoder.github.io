@@ -1,12 +1,25 @@
 <div class="content">
-  <form class="form">
+  <form class="form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div class="post-options">
+      <button class="btn btn-primary im-flex" type="submit">
+        <fa-icon [icon]="['fas', 'check']" size="1x"></fa-icon>
+        <span class="label">{{ postForm.value.id == null ? 'Create' : 'Save changes' }}</span>
+      </button>
+      <button class="btn btn-link im-flex" *ngIf="postForm.value.id != null"
+              [routerLink]="['/' + ROUTES.POST_DETAILS.url, postForm.value.id]" type="button">
+        <fa-icon [icon]="['fas', 'arrow-circle-left']" size="1x"></fa-icon>
+        <span class="label">Back</span>
+      </button>
+<!--      <button class="btn btn-primary im-flex" type="submit">{{ postForm.value.id == null ? 'Create' : 'Save changes' }}</button>-->
+<!--      <button class="btn btn-default im-flex" type="button" *ngIf="postForm.value.id != null" [routerLink]="['/' + ROUTES.POST_DETAILS.url, postForm.value.id]">Back</button>-->
+    </div>
     <div class="form-item">
       <label>Title:</label>
       <input type="text" [formControlName]="'title'" required="true" class="input-text"/>
     </div>
     <div class="form-item">
       <label>Subtitle:</label>
-      <input type="text" [formControlName]="'subtitle'" required="true" class="input-text"/>
+      <input type="text" [formControlName]="'subTitle'" required="true" class="input-text"/>
     </div>
     <div class="form-item">
       <label>Reading Time:</label>
@@ -16,6 +29,12 @@
              style="width: 50px"
              (keypress)="readingTime.value.length == 2 ? false: true" #readingTime/>
       min
+    </div>
+    <div class="form-item">
+      <label>Post:</label>
+    </div>
+    <div class="form-item post-text">
+      <angular-editor [placeholder]="'Enter text here...'" formControlName="text" [config]="editorConfig" #angularEditorComponent></angular-editor>
     </div>
   </form>
 </div>

@@ -1,3 +1,9 @@
+<div class="post-options">
+  <button class="btn btn-link im-flex" [routerLink]="['/' + ROUTES.EDIT_POST.url, post.id]">
+    <fa-icon [icon]="['fas', 'pen-square']" size="1x"></fa-icon>
+      <span class="label">Edit</span>
+  </button>
+</div>
 <div *ngIf="error == null; else errorDiv">
   <article class="post">
     <div class="post-information">

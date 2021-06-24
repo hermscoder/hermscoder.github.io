@@ -3,6 +3,7 @@ import {PostForListDto} from "../../_models/post-for-list-dto";
 import {ActivatedRoute} from "@angular/router";
 import {PostDetailsDto} from "../../_models/post-details-dto";
 import {ResolvedData} from "../../_models/resolved-data";
+import {ROUTES} from "../../routes";
 
 @Component({
   selector: 'hc-post',
@@ -10,7 +11,7 @@ import {ResolvedData} from "../../_models/resolved-data";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
+  ROUTES = ROUTES;
   post: PostDetailsDto | any = {};
   error: any = null;
 
@@ -26,7 +27,5 @@ export class PostComponent implements OnInit {
       }
     });
   }
-
-
 
 }

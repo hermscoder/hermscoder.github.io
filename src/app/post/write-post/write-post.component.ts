@@ -1,16 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {AuthService} from "../../_services/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../../_services/post.service";
-import {PostDetailsDto} from "../../_models/post-details-dto";
 import {WritePostDto} from "../../_models/write-post-dto";
-import {AngularEditorComponent, AngularEditorConfig} from "@kolkov/angular-editor";
+import {AngularEditorConfig} from "@kolkov/angular-editor";
 import {FileUploadService} from "../../_services/file-upload.service";
-import {environment} from "../../../environments/environment";
-import {Observable, of} from "rxjs";
-import {HttpClient, HttpEvent} from "@angular/common/http";
-import {AngularEditorService, UploadResponse} from "@kolkov/angular-editor/lib/angular-editor.service";
+import {of} from "rxjs";
+import {HttpEvent} from "@angular/common/http";
+import {UploadResponse} from "@kolkov/angular-editor/lib/angular-editor.service";
 import {ROUTES} from "../../routes";
 import {EditPostDto} from "../../_models/edit-post-dto";
 
@@ -104,6 +101,7 @@ export class WritePostComponent implements OnInit {
     uploadWithCredentials: false,
     toolbarPosition: 'top',
     toolbarHiddenButtons: [    ['link',
-      'unlink']]
+      'unlink']],
+    sanitize: false
   };
 }

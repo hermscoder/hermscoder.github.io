@@ -55,7 +55,7 @@ div.card {
   display: flex;
 }
 
-.small {
+.post-date {
   color: var(--default-card-subtitle-color);
 }
 

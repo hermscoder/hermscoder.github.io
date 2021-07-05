@@ -3,12 +3,20 @@
     <fa-icon [icon]="['fas', 'pen-square']" size="1x"></fa-icon>
       <span class="label">Edit</span>
   </button>
+  <button class="btn btn-light im-flex" [routerLink]="['/' + ROUTES.EDIT_POST.url, post.id]">
+    <fa-icon [icon]="['fab', 'twitter']" size="1x"></fa-icon>
+    <span class="label">Share on Twitter</span>
+  </button>
+  <button class="btn btn-light im-flex" [routerLink]="['/' + ROUTES.EDIT_POST.url, post.id]">
+    <fa-icon [icon]="['fab', 'linkedin']" size="1x"></fa-icon>
+    <span class="label">Share on LinkedIn</span>
+  </button>
 </div>
 <div *ngIf="error == null; else errorDiv">
   <article class="post">
     <div class="post-information">
       {{post.author.name}}
-      <div class="small">{{post.date | dateFormat: 'MMM DD'}} · {{post.readingTime}} min read</div>
+      <div class="fs-sm post-date">{{post.date | dateFormat: 'MMM DD'}} · {{post.readingTime}} min read</div>
     </div>
     <h1 class="post-title">{{post.title}}</h1>
     <h3 class="post-subtitle">{{post.subTitle}}</h3>

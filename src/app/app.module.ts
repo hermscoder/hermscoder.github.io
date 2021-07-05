@@ -33,7 +33,8 @@ import {
   faPenSquare,
   faSquare
 } from "@fortawesome/free-solid-svg-icons";
-import {faStackOverflow, faGithub, faMedium, faCodepen} from '@fortawesome/free-brands-svg-icons';
+import {faStackOverflow, faGithub, faMedium, faCodepen, faLinkedin} from '@fortawesome/free-brands-svg-icons';
+import {faTwitter} from "@fortawesome/free-brands-svg-icons/faTwitter";
 
 @NgModule({
   declarations: [
@@ -69,6 +70,6 @@ import {faStackOverflow, faGithub, faMedium, faCodepen} from '@fortawesome/free-
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faSquare, faCheckSquare, faSquare, faCheckSquare, faStackOverflow, faGithub, faMedium, faPen, faPenSquare, faArrowCircleLeft, faCheck);
+    library.addIcons(faSquare, faCheckSquare, faSquare, faCheckSquare, faStackOverflow, faGithub, faLinkedin, faTwitter, faPen, faPenSquare, faArrowCircleLeft, faCheck);
   }
 }

@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <h1 class="fs-xxl mb-3">
-      <span class="d-block unmask">Emerson Ribeiro<span class="d-inline-block nickname">[Herms Coder]</span></span>
+      <span class="d-block unmask">{{profile.givenName + ' ' + profile.familyName}}<span class="d-inline-block nickname">[Herms Coder]</span></span>
 
-      <span class="d-block primary">Web Developer</span>
+      <span class="d-block primary">{{profile.jobTitle}}</span>
     </h1>
     <p class="text-gray-2 mt-0">Developing solutions, maintaining software and solving problems.</p>
     <button class="btn btn-primary big-btn">See my portfolio</button>
@@ -34,9 +34,18 @@
   </div>
   <div class="description pl-5">
     <h2>About me</h2>
-    <p>I am Emerson, a consulting data analyst and social researcher passionate about working with organisations that want to make effective use of their data; from the first ideas around what you want to measure and how to capture data accurately, through data preparation, analysis and management, all the way to impactful presentation of insights. I can support each step of the process to enable your organisation in making evidence-driven decisions or share insights with new audiences. I also offer training in Tableau, Alteryx, CommCare, Research Methods and Data Literacy.
-    <br><br>
-    I am available for short-term freelancing projects or on longer-term consulting contracts.
+    <p>
+      {{profile.description}}
     </p>
+  </div>
+</div>
+
+<div class="portfolio">
+  <div class="row">
+    <h1>Portfolio</h1>
+    <p class="text-gray-2">A sample of my client work and personal projects</p>
+  </div>
+  <div class="row">
+    <hc-portfolio></hc-portfolio>
   </div>
 </div>

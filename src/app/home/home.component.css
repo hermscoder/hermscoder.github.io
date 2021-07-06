@@ -60,6 +60,14 @@
   line-height: 1.75rem;
 }
 
+.portfolio {
+  text-align: center;
+  align-content: center;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media only screen
 and (max-width: 800px) {
   .container {
@@ -77,9 +85,13 @@ and (max-width: 800px) {
   .about-me .description {
     width: auto;
   }
+
+  .portfolio {
+    text-align: left;
+  }
 }
 
-h3 {
+h1, h2, h3 {
   font-family: var(--default-btn-font-family);
   font-weight: bold;
 }

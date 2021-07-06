@@ -7,6 +7,7 @@ import {PortfolioComponent} from "./portfolio/portfolio/portfolio.component";
 import {PostResolver} from "./_resolvers/PostResolver";
 import {RouteData} from "./_models/route-data";
 import {WritePostComponent} from "./post/write-post/write-post.component";
+import {ProfileResolver} from "./_resolvers/ProfileResolver";
 
 export const ROUTES = {
   HOME: { url: '', title: 'Home' },
@@ -27,15 +28,13 @@ export const ROUTES = {
 
 
 export const appRoutes: Routes = [
-  { path: ROUTES.HOME.url, component: HomeComponent },
+  { path: ROUTES.HOME.url, component: HomeComponent, resolve: { profile: ProfileResolver } },
   {
     path: '',
-    runGuardsAndResolvers: 'always',
-    canActivate: [AuthGuard],
     children: [
       { path: ROUTES.LIST_POSTS.url, component: ListPostsComponent },
-      { path: ROUTES.WRITE_POST.url, component: WritePostComponent },
-      { path: ROUTES.EDIT_POST.url + ':id', component: WritePostComponent, resolve: { post: PostResolver }},
+      { path: ROUTES.WRITE_POST.url, component: WritePostComponent,canActivate: [AuthGuard] },
+      { path: ROUTES.EDIT_POST.url + ':id', component: WritePostComponent, resolve: { post: PostResolver }, canActivate: [AuthGuard]},
       { path: ROUTES.POST_DETAILS.url + ':id', component: PostComponent, resolve: { post: PostResolver }},
       { path: ROUTES.PORTFOLIO.url, component: PortfolioComponent },
     ]

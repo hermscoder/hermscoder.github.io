@@ -7,6 +7,7 @@ import {catchError, map} from "rxjs/operators";
 import {ResolvedData} from "../_models/resolved-data";
 import {ProfileDetailsDto} from "../_models/profile-details-dto";
 import {ProfileService} from "../_services/profile.service";
+import {ROUTES} from "../routes";
 
 @Injectable()
 export class ProfileResolver implements Resolve<ResolvedData<ProfileDetailsDto>> {
@@ -17,7 +18,7 @@ export class ProfileResolver implements Resolve<ResolvedData<ProfileDetailsDto>>
     return this.profileService.getMainProfile().pipe(
       map((route) => new ResolvedData<ProfileDetailsDto>(route)),
       catchError(error => {
-        this.router.navigate(['/']);
+        this.router.navigate([ROUTES.HOME.url]);
         return of(new ResolvedData<ProfileDetailsDto>(null, error));
         // this.alertify.error('Problem retrieving data');
       })

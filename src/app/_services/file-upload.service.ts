@@ -10,7 +10,7 @@ import {UploadResponse} from "@kolkov/angular-editor/lib/angular-editor.service"
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = environment.apiUrl + 'upload';
+  private baseUrl = environment.apiUrl + 'media/upload';
 
   constructor(private httpClient: HttpClient){ }
 

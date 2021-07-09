@@ -1,4 +1,7 @@
 import {ExperienceDto} from "./experience-dto";
+import {ProjectDto} from "./project-dto";
+
+
 
 export class ProfileDetailsDto {
   id: string;
@@ -7,10 +10,11 @@ export class ProfileDetailsDto {
   birthDate: string;
   jobTitle: string;
   description: string;
-  experiences: ExperienceDto [];
+  experiences: ExperienceDto[];
+  projectsList: ProjectDto[];
 
 
-  constructor(id: string, givenName: string, familyName: string, birthDate: string, jobTitle: string, description: string, experiences: ExperienceDto[]) {
+  constructor(id: string, givenName: string, familyName: string, birthDate: string, jobTitle: string, description: string, experiences: ExperienceDto[], projectsList: ProjectDto[]) {
     this.id = id;
     this.givenName = givenName;
     this.familyName = familyName;
@@ -18,5 +22,6 @@ export class ProfileDetailsDto {
     this.jobTitle = jobTitle;
     this.description = description;
     this.experiences = experiences;
+    this.projectsList = projectsList;
   }
 }

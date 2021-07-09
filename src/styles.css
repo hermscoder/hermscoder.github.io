@@ -14,7 +14,9 @@
   --default-nav-border-color: rgba(166, 166, 166, 0.42);
 
   /*Button colors*/
-  --default-primary-color: #6cabbb;
+  /*--default-primary-color: #6c97bb;*/
+  --default-primary-color: rgb(var(--default-primary-color-rgb-values));
+  --default-primary-color-rgb-values: 108, 171, 187;
 
   /*Card colors*/
   --default-card-title-color: #000000;
@@ -46,6 +48,13 @@ html {
 .primary {
   color: var(--default-primary-color);
 }
+
+.text-gray-0 {
+  --tw-text-opacity: 1;
+  color: #d9d9d9;
+}
+
+
 .text-gray-1 {
   --tw-text-opacity: 1;
   color: #b2b4b4;
@@ -414,4 +423,7 @@ input[type=number] {
 
 .w50 {
   width: 50%;
+}
+.clickable {
+  cursor: pointer;
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProfileDetailsDto} from "../../_models/profile-details-dto";
 
 @Component({
   selector: 'hc-portfolio',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
+  @Input() profile: ProfileDetailsDto | undefined;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  navigateTo(urlToProject: string) {
+    window.open(urlToProject);
+  }
 }

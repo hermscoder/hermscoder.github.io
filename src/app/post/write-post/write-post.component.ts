@@ -94,7 +94,7 @@ export class WritePostComponent implements OnInit {
     //Fixing image upload
     upload: (file: File) => {
       this.fileUploadService.uploadFile(file).subscribe((response: any)=> {
-        this.angularEditorComponent.editorService.insertImage(response.imageUrl);
+        this.angularEditorComponent.editorService.insertImage(response.url);
       });
       return of<HttpEvent<UploadResponse>>();
     },

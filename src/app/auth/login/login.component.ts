@@ -3,6 +3,7 @@ import {AuthService} from "../../_services/auth.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationRequest} from "../../_models/authentication-request";
 import {Router} from "@angular/router";
+import {ROUTES} from "../../routes";
 
 @Component({
   selector: 'hc-login',
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
                             this.loginForm.get('password')?.value
                           )).subscribe(success => {
       if(success) {
-        this.router.navigate(['']);
+        this.router.navigate([ROUTES.HOME.url]);
         this.onLoginSuccessfull.emit();
       } else {
         alert('LOGIN FAILED');

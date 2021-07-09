@@ -30,7 +30,7 @@
 
 <div class="about-me">
   <div class="banner-img">
-      <img src="https://media-private.canva.com/3a4Tk/MAEjP53a4Tk/1/s2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20210704%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T121844Z&amp;X-Amz-Expires=31370&amp;X-Amz-Signature=f8eb3e02e8c5aef9b0a9a159dcad0e6416f67cdbb447a84f557fe35aa2211cc9&amp;X-Amz-SignedHeaders=host&amp;response-expires=Sun%2C%2004%20Jul%202021%2021%3A01%3A34%20GMT" alt="Emerson Ribeiro">
+      <img src="https://res.cloudinary.com/dsonk49e9/image/upload/v1625772490/blogfolio/banner-logo.png" alt="Emerson Ribeiro">
   </div>
   <div class="description pl-5">
     <h2>About me</h2>
@@ -46,6 +46,22 @@
     <p class="text-gray-2">A sample of my client work and personal projects</p>
   </div>
   <div class="row">
-    <hc-portfolio></hc-portfolio>
+    <hc-portfolio [profile]="profile"></hc-portfolio>
+  </div>
+</div>
+
+<div class="get-in-touch">
+  <div class="row">
+    <h1>Get in touch</h1>
+    <form class="form" >
+<!--      <div class="form-item">-->
+<!--        <label>Title:</label>-->
+<!--        <input type="text" [formControlName]="'title'" required="true" class="input-text"/>-->
+<!--      </div>-->
+<!--      <div class="form-item">-->
+<!--        <label>Subtitle:</label>-->
+<!--        <input type="text" [formControlName]="'subTitle'" required="true" class="input-text"/>-->
+<!--      </div>-->
+    </form>
   </div>
 </div>

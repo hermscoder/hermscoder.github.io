@@ -1,1 +1,8 @@
-<p>portfolio works!</p>
+<div *ngIf="profile != null" class="row project-collection">
+  <div *ngFor="let project of profile?.projectsList" class="project" style="background-image: url({{project.thumbnail.url}})">
+    <div class="project-description clickable" (click)="navigateTo(project.urlToProject)">
+      <h2 class="text-gray-1">{{project.title}}</h2>
+      <span class="text-gray-2">{{project.description}}</span>
+    </div>
+  </div>
+</div>

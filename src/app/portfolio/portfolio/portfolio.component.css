@@ -1,0 +1,49 @@
+.project-collection {
+  display: inline-flex;
+  margin: 0 10%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.project {
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: center center;
+
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  margin: 10px 10px;
+}
+
+.project:hover .project-description {
+  opacity: 1;
+}
+
+.project-description {
+  background-color: rgba(0,0,0, 0.8);
+  color: white;
+  opacity: 0;
+  transition: 1s;
+  overflow: hidden;
+  height: 100%;
+}
+
+
+@media only screen
+and (max-width: 800px) {
+  .project-collection {
+    margin: 0 0;
+    justify-content: start;
+    display: block;
+  }
+
+  .project {
+    width: 100%;
+  }
+
+  .project-description {
+    text-align: center;
+    opacity: 1;
+  }
+}

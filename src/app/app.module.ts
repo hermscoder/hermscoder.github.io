@@ -36,6 +36,7 @@ import {
 import {faStackOverflow, faGithub, faMedium, faCodepen, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faTwitter} from "@fortawesome/free-brands-svg-icons/faTwitter";
 import {ProfileResolver} from "./_resolvers/ProfileResolver";
+import {ErrorInterceptor, ErrorInterceptorProvider} from "./_services/error.interceptor";
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import {ProfileResolver} from "./_resolvers/ProfileResolver";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},
+    ErrorInterceptorProvider,
     PostResolver,
     ProfileResolver
   ],

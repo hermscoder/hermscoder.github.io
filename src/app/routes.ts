@@ -38,7 +38,8 @@ export const appRoutes: Routes = [
       { path: ROUTES.POST_DETAILS.url + ':id', component: PostComponent, resolve: { post: PostResolver }},
       { path: ROUTES.PORTFOLIO.url, component: PortfolioComponent },
     ]
-  }
+  },
+  { path: "**", redirectTo: ROUTES.HOME.url, pathMatch: "full" }
 ];
 
 

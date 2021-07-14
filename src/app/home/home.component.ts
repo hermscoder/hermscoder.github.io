@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileDetailsDto} from "../_models/profile-details-dto";
-import {ActivatedRoute, Route} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,15 @@ import {ActivatedRoute, Route} from "@angular/router";
 export class HomeComponent implements OnInit {
   profile: ProfileDetailsDto | any = {};
   error: any = null;
-  constructor(private route: ActivatedRoute) { }
+  contactForm: FormGroup;
+
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.contactForm = new FormGroup({
+      title: new FormControl(),
+      email: new FormControl(),
+      message: new FormControl()
+    })
+  }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
@@ -21,6 +30,11 @@ export class HomeComponent implements OnInit {
         this.error = resolvedData.error;
       }
     });
+
+  }
+
+  onSubmit(): void {
+    console.log('Enviar: ' + this.contactForm.value.toString());
   }
 
 }

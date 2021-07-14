@@ -6,62 +6,88 @@
       <span class="d-block primary">{{profile.jobTitle}}</span>
     </h1>
     <p class="text-gray-2 mt-0">Developing solutions, maintaining software and solving problems.</p>
-    <button class="btn btn-primary big-btn">See my portfolio</button>
-    <button class="btn btn-link big-btn">Get in touch</button>
+    <a href="#portfolio">
+      <button class="btn btn-primary big-btn">See my portfolio</button>
+    </a>
+    <a href="#contact_me">
+      <button class="btn btn-link big-btn">Get in touch</button>
+    </a>
   </div>
   <div class="row  mt-5 services">
     <div>
-      <img src="https://naledi.co.uk/collect.svg" class="w-32 h-32 -ml-4">
-      <h3>Developing solutions</h3>
-      <p class="text-gray-2">Typically used to add cosmetic content to an element, by using the content CSS property. This element is inline by default.</p>
+      <img src="../assets/images/service-1.png" class="services-img">
+      <h3>Java certified</h3>
+      <p class="text-gray-2">To become an Oracle Certified Associate, Java SE 8 Programmer was necessary to demonstrate knowledge of object-oriented concepts, Java programming language and general knowledge of Java platforms and technologies.</p>
     </div>
     <div>
-      <img src="https://naledi.co.uk/collect.svg" class="w-32 h-32 -ml-4">
-      <h3>Developing solutions</h3>
-      <p class="text-gray-2">Typically used to add cosmetic content to an element, by using the content CSS property. This element is inline by default.</p>
+      <img src="../assets/images/service-2.png" class="services-img">
+      <h3>Web developer</h3>
+      <p class="text-gray-2">Capable of developing applications accessible from anywhere. Using technologies as Spring Boot and Angular to achieve the best final result.</p>
     </div>
     <div>
-      <img src="https://naledi.co.uk/collect.svg" class="w-32 h-32 -ml-4">
-      <h3>Developing solutions</h3>
-      <p class="text-gray-2">Typically used to add cosmetic content to an element, by using the content CSS property. This element is inline by default.</p>
+      <img src="../assets/images/service-3.png" class="services-img">
+      <h3>Interpersonal & communication skills</h3>
+      <p class="text-gray-2">A great team player that has the feeling of belonging and work towards the team goal. A knowledge sharing professional willing to learn and capable of encourage new workers to seek for better problem solutions and propose innovative solutions.</p>
     </div>
   </div>
 </div>
 
-<div class="about-me">
+<div class="about-me" id="about_me">
   <div class="banner-img">
       <img src="https://res.cloudinary.com/dsonk49e9/image/upload/v1625772490/blogfolio/banner-logo.png" alt="Emerson Ribeiro">
   </div>
   <div class="description pl-5">
-    <h2>About me</h2>
+    <h2 class="section-title">About me</h2>
     <p>
       {{profile.description}}
     </p>
   </div>
 </div>
 
-<div class="portfolio">
-  <div class="row">
-    <h1>Portfolio</h1>
-    <p class="text-gray-2">A sample of my client work and personal projects</p>
-  </div>
-  <div class="row">
-    <hc-portfolio [profile]="profile"></hc-portfolio>
+<div class="container" id="portfolio">
+  <div class="portfolio">
+    <div class="row">
+      <h1 class="section-title">Portfolio</h1>
+      <h2>Personal Projects</h2>
+      <p class="text-gray-2">A sample of my personal projects</p>
+      <hc-portfolio [profile]="profile"></hc-portfolio>
+    </div>
+    <div class="row">
+      <h2>Working Experience</h2>
+      <p class="text-gray-2">All the companies that I was part of</p>
+      <div class="experiences">
+        <hc-experiences [experienceList]="profile.experienceList"></hc-experiences>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="get-in-touch">
-  <div class="row">
-    <h1>Get in touch</h1>
-    <form class="form" >
-<!--      <div class="form-item">-->
-<!--        <label>Title:</label>-->
-<!--        <input type="text" [formControlName]="'title'" required="true" class="input-text"/>-->
-<!--      </div>-->
-<!--      <div class="form-item">-->
-<!--        <label>Subtitle:</label>-->
-<!--        <input type="text" [formControlName]="'subTitle'" required="true" class="input-text"/>-->
-<!--      </div>-->
-    </form>
+
+<div class="container" id="contact_me">
+  <div class="contact-me">
+    <div class="row">
+      <h1 class="section-title">Contact me</h1>
+      <div class="contact-me-form">
+        <form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-item-column">
+            <label class="form-label">Name</label>
+            <input type="text" [formControlName]="'title'" required="true" class="input-text"/>
+          </div>
+          <div class="form-item-column">
+            <label class="form-label">Email address</label>
+            <input type="text" [formControlName]="'email'" required="true" class="input-text"/>
+          </div>
+          <div class="form-item-column">
+            <label class="form-label">Message</label>
+            <textarea [formControlName]="'message'" required="true" class="input-text" rows="4" style="max-width: 100%"></textarea>
+          </div>
+          <div class="form-item-column mt-2" style="text-align: right;">
+            <button class="btn btn-primary im-flex w100 pt-2 pb-2" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
+
+

@@ -14,7 +14,7 @@
   --default-nav-border-color: rgba(166, 166, 166, 0.42);
 
   /*Button colors*/
-  /*--default-primary-color: #6c97bb;*/
+  /*--default-primary-color: #BA7C6C;*/
   --default-primary-color: rgb(var(--default-primary-color-rgb-values));
   --default-primary-color-rgb-values: 108, 171, 187;
 
@@ -24,7 +24,7 @@
 
   /*Post colors*/
   --default-post-title-color: #000000;
-  --default-post-subtitle-color: #949494;
+  --default-post-subtitle-color: #bbbbbb;
 }
 
 * {
@@ -123,6 +123,7 @@ html {
 /*******************/
 h1, h2, h3, h4, h5 {
   font-family: var(--default-btn-font-family);
+  font-weight: bold;
 }
 
 /******************/
@@ -131,40 +132,43 @@ h1, h2, h3, h4, h5 {
 
 .form {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  color: var(--default-text-color);
 }
 
-
-.form .form-item {
+.form-item {
   padding: 5px 5px;
   display: flex;
+  align-items: center;
 }
 
-.form .form-item label {
+.form-item-column {
+  padding: 5px 5px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.form-label{
   width: auto;
   margin-right: 10px;
-  font-weight: bold;
-}
-
-.form .form-item input {
-  width: 70%;
+  font-size: 15px;
 }
 
   /*******************/
  /***Input classes **/
 /*******************/
 .input-text {
-  border-top: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  border-bottom: 1px solid;
-  border-radius: 0px;
-  border-color: var(--default-text-color);
+  border: 1px solid var(--default-post-subtitle-color);
+  border-radius: 5px;
+  padding: 10px;
   transition: all 0.6s;
+  width: 90%;
 }
 .input-text:focus-visible {
   outline: none;
-  border-color: inherit;
-  border-bottom: 2px solid var(--default-primary-color) ;
+  border: 1px solid var(--default-primary-color);
+  transform: scaleX(1.005);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -397,8 +401,12 @@ input[type=number] {
 }
 
 
-.fs-sm {
+.fs-xsm {
   font-size: 0.5rem;
+}
+
+.fs-sm {
+  font-size: 0.7rem;
 }
 
 .fs-md {
@@ -426,4 +434,8 @@ input[type=number] {
 }
 .clickable {
   cursor: pointer;
+}
+
+.pull-right {
+  right: 0px;
 }

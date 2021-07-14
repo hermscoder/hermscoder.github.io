@@ -1,4 +1,5 @@
 .app-content {
   padding-top: var(--header-height);
   min-width: var(--app-min-width);
+  padding-bottom: 20px;
 }

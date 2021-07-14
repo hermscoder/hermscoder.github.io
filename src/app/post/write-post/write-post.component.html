@@ -12,15 +12,15 @@
       </button>
     </div>
     <div class="form-item">
-      <label>Title:</label>
+      <label class="form-label">Title:</label>
       <input type="text" [formControlName]="'title'" required="true" class="input-text"/>
     </div>
     <div class="form-item">
-      <label>Subtitle:</label>
+      <label class="form-label">Subtitle:</label>
       <input type="text" [formControlName]="'subTitle'" required="true" class="input-text"/>
     </div>
     <div class="form-item">
-      <label>Reading Time:</label>
+      <label class="form-label">Reading Time:</label>
       <input type="number" [formControlName]="'readingTime'"
              required="true"
              class="input-text mr-1"
@@ -29,7 +29,7 @@
       min
     </div>
     <div class="form-item">
-      <label>Post:</label>
+      <label class="form-label">Post:</label>
     </div>
     <div class="form-item post-text">
       <angular-editor [placeholder]="'Enter text here...'" formControlName="text" [config]="editorConfig" #angularEditorComponent></angular-editor>

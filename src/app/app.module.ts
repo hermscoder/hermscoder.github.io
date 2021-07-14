@@ -37,6 +37,7 @@ import {faStackOverflow, faGithub, faMedium, faCodepen, faLinkedin} from '@forta
 import {faTwitter} from "@fortawesome/free-brands-svg-icons/faTwitter";
 import {ProfileResolver} from "./_resolvers/ProfileResolver";
 import {ErrorInterceptor, ErrorInterceptorProvider} from "./_services/error.interceptor";
+import { ExperiencesComponent } from './portfolio/experiences/experiences.component';
 
 @NgModule({
   declarations: [
@@ -51,14 +52,19 @@ import {ErrorInterceptor, ErrorInterceptorProvider} from "./_services/error.inte
     SafeHtmlPipe,
     HtmlToPlaintextPipe,
     DateFormatPipe,
-    WritePostComponent
+    WritePostComponent,
+    ExperiencesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     NgxWebstorageModule.forRoot(),
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 40],
+    }),
     ReactiveFormsModule,
     CommonsModule,
     AngularEditorModule,

@@ -24,6 +24,8 @@ export class DateFormatPipe implements PipeTransform {
       result = year + "-" + month + "-" + day;
     } else if (format ==='MMM DD') {
       result = DateFormatPipe.MONTHS[parseInt(month)-1] + ' ' + day;
+    } else if (format ==='MMM yyyy') {
+      result = DateFormatPipe.MONTHS[parseInt(month)-1] + ' ' + year;
     } else {
       result = 'Invalid format';
     }

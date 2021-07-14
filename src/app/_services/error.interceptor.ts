@@ -67,10 +67,10 @@ export class ErrorInterceptor implements HttpInterceptor {
         handled = true;
         break;
       case 403:
-        console.log("You shall not pass!!");
-        // this.router.navigate([ROUTES.HOME.url])
+        console.log("You shall not pass!! Please login again!");
+        this.authService.logout();
+        this.router.navigate([ROUTES.HOME.url])
         // this.routeMessageService.message = "Please login again.";
-        // this.authenticationService.logout();
         handled = true;
         break;
     }

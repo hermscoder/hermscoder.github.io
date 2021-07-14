@@ -1,0 +1,13 @@
+<ul *ngIf="experienceList != null" class="experience-timeline">
+  <li *ngFor="let experience of experienceList?.reverse()" class="experience"
+      [attr.data-date]="experience.startDate | dateFormat: 'MMM yyyy'">
+    <div >
+      <div class="experience-information">
+        <h3>{{experience.jobTitle}}</h3>
+        <span class="text-gray-3">{{experience.companyName}} - {{experience.local}}</span><br>
+      </div>
+      <div class="experience-description" [innerHTML]="experience.description">
+      </div>
+    </div>
+  </li>
+</ul>

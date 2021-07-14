@@ -1,11 +1,16 @@
 <nav class="toolbar" role="banner">
   <a class="logo" [routerLink]="['/']">Herms Coder</a>
-  <a title="Posts" class="item" [routerLink]="[ROUTES.LIST_POSTS.url]" routerLinkActive="is-active">
-    <span>Posts</span>
+  <span class="v-ruler"></span>
+  <a title="About me" class="item" href="#about_me">
+    About me
   </a>
   <span class="v-ruler"></span>
-  <a title="Portfolio" class="item" [routerLink]="[ROUTES.PORTFOLIO.url]" [routerLinkActive]="'is-active'">
+  <a title="Portfolio" class="item" href="#portfolio">
     Portfolio
+  </a>
+  <span class="v-ruler"></span>
+  <a title="Posts" class="item" [routerLink]="[ROUTES.LIST_POSTS.url]" routerLinkActive="is-active">
+    <span>Posts</span>
   </a>
   <span class="v-ruler"></span>
   <a title="Login" class="item no-flex" (click)="modalService.open('loginModal')" *ngIf="!authService.isAuthenticated()">

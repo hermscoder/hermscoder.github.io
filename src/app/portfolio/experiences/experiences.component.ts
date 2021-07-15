@@ -17,8 +17,4 @@ export class ExperiencesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  focus(experience: any) {
-    experience.focused = true;
-  }
 }

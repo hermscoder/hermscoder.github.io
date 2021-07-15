@@ -23,6 +23,13 @@ export const ROUTES = {
             this.WRITE_POST,
             this.EDIT_POST,
             this.PORTFOLIO]
+  },
+  isItHomeRoute(url: string){
+    let anchorIndex = url.indexOf('#');
+    if(anchorIndex > -1) {
+      url = url.substr(0, url.indexOf('#'));
+    }
+    return url.replace('/','') === this.HOME.url;
   }
 };
 

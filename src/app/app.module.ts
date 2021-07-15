@@ -38,6 +38,8 @@ import {faTwitter} from "@fortawesome/free-brands-svg-icons/faTwitter";
 import {ProfileResolver} from "./_resolvers/ProfileResolver";
 import {ErrorInterceptor, ErrorInterceptorProvider} from "./_services/error.interceptor";
 import { ExperiencesComponent } from './portfolio/experiences/experiences.component';
+import {NgxPageScrollModule} from "ngx-page-scroll";
+import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
 
 @NgModule({
   declarations: [
@@ -63,12 +65,14 @@ import { ExperiencesComponent } from './portfolio/experiences/experiences.compon
     RouterModule.forRoot(appRoutes, {
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled',
-      scrollOffset: [0, 40],
+      scrollOffset: [0, 50],
     }),
     ReactiveFormsModule,
     CommonsModule,
     AngularEditorModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxPageScrollModule,
+    NgxPageScrollCoreModule.forRoot({duration: 500, scrollOffset: 60}),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},

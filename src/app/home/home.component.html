@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="top">
   <div class="row">
     <h1 class="fs-xxl mb-3">
       <span class="d-block unmask">{{profile.givenName + ' ' + profile.familyName}}<span class="d-inline-block nickname">[Herms Coder]</span></span>
@@ -6,10 +6,10 @@
       <span class="d-block primary">{{profile.jobTitle}}</span>
     </h1>
     <p class="text-gray-2 mt-0">Developing solutions, maintaining software and solving problems.</p>
-    <a href="#portfolio">
+    <a pageScroll href="#portfolio">
       <button class="btn btn-primary big-btn">See my portfolio</button>
     </a>
-    <a href="#contact_me">
+    <a pageScroll href="#contact_me">
       <button class="btn btn-link big-btn">Get in touch</button>
     </a>
   </div>
@@ -44,7 +44,7 @@
   </div>
 </div>
 
-<div class="container" id="portfolio">
+<div class="container" id="portfolio" #portfolio>
   <div class="portfolio">
     <div class="row">
       <h1 class="section-title">Portfolio</h1>

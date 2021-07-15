@@ -1,11 +1,12 @@
 <nav class="toolbar" role="banner">
-  <a class="logo" [routerLink]="['/']">Herms Coder</a>
+  <a class="logo clickable" (click)="navigateOrScrollTo(ROUTES.HOME.url, 'top')">Herms Coder</a>
   <span class="v-ruler"></span>
-  <a title="About me" class="item" href="#about_me">
+
+  <a title="About me" class="item" (click)="navigateOrScrollTo(ROUTES.HOME.url, 'about_me')">
     About me
   </a>
   <span class="v-ruler"></span>
-  <a title="Portfolio" class="item" href="#portfolio">
+  <a title="Portfolio" class="item" (click)="navigateOrScrollTo(ROUTES.HOME.url, 'portfolio')">
     Portfolio
   </a>
   <span class="v-ruler"></span>

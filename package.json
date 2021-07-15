@@ -23,6 +23,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@kolkov/angular-editor": "^1.1.7",
+    "ngx-page-scroll": "^7.0.5",
+    "ngx-page-scroll-core": "^7.0.5",
     "ngx-webstorage": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",

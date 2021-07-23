@@ -40,6 +40,8 @@ import {ErrorInterceptor, ErrorInterceptorProvider} from "./_services/error.inte
 import { ExperiencesComponent } from './portfolio/experiences/experiences.component';
 import {NgxPageScrollModule} from "ngx-page-scroll";
 import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import {DatePipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
     HtmlToPlaintextPipe,
     DateFormatPipe,
     WritePostComponent,
-    ExperiencesComponent
+    ExperiencesComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
     { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},
     ErrorInterceptorProvider,
     PostResolver,
-    ProfileResolver
+    ProfileResolver,
+    DateFormatPipe
   ],
   bootstrap: [AppComponent]
 })

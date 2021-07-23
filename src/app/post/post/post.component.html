@@ -16,7 +16,7 @@
   <article class="post">
     <div class="post-information">
       {{post.author.name}}
-      <div class="fs-xsm post-date">{{post.date | dateFormat: 'MMM DD'}} · {{post.readingTime}} min read</div>
+      <div class="fs-xsm post-date">{{post.date | dateToStrFormat: 'MMM DD'}} · {{post.readingTime}} min read</div>
     </div>
     <h1 class="post-title">{{post.title}}</h1>
     <h3 class="post-subtitle">{{post.subTitle}}</h3>

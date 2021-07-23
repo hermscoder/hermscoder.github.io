@@ -1,0 +1,30 @@
+<div class="content">
+  <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-item">
+      <label class="form-label">Given Name:</label>
+      <input type="text" [formControlName]="'givenName'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Family Name:</label>
+      <input type="text" [formControlName]="'familyName'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Birthdate:</label>
+      <hc-date-input [formControl]="toControl(profileForm.controls.birthDate)"></hc-date-input>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Job title:</label>
+      <input type="text" [formControlName]="'jobTitle'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Description:</label>
+      <textarea [formControlName]="'description'" required="true" class="textarea" rows="4" style="max-width: 100%"></textarea>
+    </div>
+    <div class="post-options">
+      <button class="btn btn-primary im-flex" type="submit">
+        <fa-icon [icon]="['fas', 'check']" size="1x"></fa-icon>
+        <span class="label">{{ profileForm.value.id == null ? 'Create' : 'Save changes' }}</span>
+      </button>
+    </div>
+  </form>
+</div>

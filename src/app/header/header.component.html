@@ -22,7 +22,7 @@
       {{authService.currentUser.name}}
     </a>
     <hc-dropdown [dropDownToggle]="dropDownToggler" dropDownDirection="left bottom">
-      <button class="btn btn-link mb-0 mt-0">Edit portfolio</button>
+      <button class="btn btn-link mb-0 mt-0" [routerLink]="[ROUTES.EDIT_PROFILE.url]">Edit portfolio</button>
       <span class="separator"><hr></span>
       <button class="btn btn-link mb-0 mt-0" [routerLink]="[ROUTES.WRITE_POST.url]">Write a posts</button>
       <span class="separator"><hr></span>

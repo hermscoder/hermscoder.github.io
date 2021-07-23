@@ -8,6 +8,7 @@ import {PostResolver} from "./_resolvers/PostResolver";
 import {RouteData} from "./_models/route-data";
 import {WritePostComponent} from "./post/write-post/write-post.component";
 import {ProfileResolver} from "./_resolvers/ProfileResolver";
+import {EditProfileComponent} from "./profile/edit-profile/edit-profile.component";
 
 export const ROUTES = {
   HOME: { url: '', title: 'Home' },
@@ -16,6 +17,7 @@ export const ROUTES = {
   WRITE_POST: { url: 'posts/write', title: 'Write post' },
   EDIT_POST: { url: 'posts/edit/', title: 'Edit post' },
   PORTFOLIO: { url: 'portfolio', title: 'Portifolio' },
+  EDIT_PROFILE: { url: 'portfolio/edit', title: 'Edit Portifolio' },
   all(): RouteData[] {
     return [this.HOME,
             this.LIST_POSTS,
@@ -44,6 +46,7 @@ export const appRoutes: Routes = [
       { path: ROUTES.EDIT_POST.url + ':id', component: WritePostComponent, resolve: { post: PostResolver }, canActivate: [AuthGuard]},
       { path: ROUTES.POST_DETAILS.url + ':id', component: PostComponent, resolve: { post: PostResolver }},
       { path: ROUTES.PORTFOLIO.url, component: PortfolioComponent },
+      { path: ROUTES.EDIT_PROFILE.url, component: EditProfileComponent, resolve: { profile: ProfileResolver }, canActivate: [AuthGuard]  },
     ]
   },
   { path: "**", redirectTo: ROUTES.HOME.url, pathMatch: "full" }

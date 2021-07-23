@@ -178,6 +178,15 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.textarea {
+  border: 1px solid var(--default-post-subtitle-color);
+  font-family: 'Lato', 'Arial', sans-serif;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.6s;
+  width: 90%;
+}
+
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
@@ -203,6 +212,9 @@ input[type=number] {
   display: inline-flex;
 }
 
+d-none {
+  display: none;
+}
 
 .im-flex {
   flex: 1;

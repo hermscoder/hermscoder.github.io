@@ -1,5 +1,4 @@
 <div class="content">
-  <form class="form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
     <div class="post-options">
       <button class="btn btn-primary im-flex" type="submit">
         <fa-icon [icon]="['fas', 'check']" size="1x"></fa-icon>
@@ -11,6 +10,7 @@
         <span class="label">Back</span>
       </button>
     </div>
+  <form class="form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
     <div class="form-item">
       <label class="form-label">Title:</label>
       <input type="text" [formControlName]="'title'" required="true" class="input-text"/>

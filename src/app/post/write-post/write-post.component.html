@@ -1,16 +1,16 @@
 <div class="content">
-    <div class="post-options">
-      <button class="btn btn-primary im-flex" type="submit">
-        <fa-icon [icon]="['fas', 'check']" size="1x"></fa-icon>
-        <span class="label">{{ postForm.value.id == null ? 'Create' : 'Save changes' }}</span>
-      </button>
-      <button class="btn btn-link im-flex" *ngIf="postForm.value.id != null"
-              [routerLink]="['/' + ROUTES.POST_DETAILS.url, postForm.value.id]" type="button">
-        <fa-icon [icon]="['fas', 'arrow-circle-left']" size="1x"></fa-icon>
-        <span class="label">Back</span>
-      </button>
-    </div>
   <form class="form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+  <div class="post-options">
+    <button class="btn btn-primary im-flex" type="submit">
+      <fa-icon [icon]="['fas', 'check']" size="1x"></fa-icon>
+      <span class="label">{{ postForm.value.id == null ? 'Create' : 'Save changes' }}</span>
+    </button>
+    <button class="btn btn-link im-flex" *ngIf="postForm.value.id != null"
+            [routerLink]="['/' + ROUTES.POST_DETAILS.url, postForm.value.id]" type="button">
+      <fa-icon [icon]="['fas', 'arrow-circle-left']" size="1x"></fa-icon>
+      <span class="label">Back</span>
+    </button>
+  </div>
     <div class="form-item">
       <label class="form-label">Title:</label>
       <input type="text" [formControlName]="'title'" required="true" class="input-text"/>

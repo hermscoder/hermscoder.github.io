@@ -1,5 +1,12 @@
 <div class="content">
   <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="post-options">
+      <button class="btn btn-primary im-flex" type="submit">
+        <fa-icon [icon]="['fas', 'check']" size="1x"></fa-icon>
+        <span class="label">{{ profileForm.value.id == null ? 'Create' : 'Save changes' }}</span>
+      </button>
+    </div>
+    <h2>Personal Data</h2>
     <div class="form-item">
       <label class="form-label">Given Name:</label>
       <input type="text" [formControlName]="'givenName'" required="true" class="input-text"/>
@@ -10,7 +17,8 @@
     </div>
     <div class="form-item">
       <label class="form-label">Birthdate:</label>
-      <hc-date-input [formControl]="toControl(profileForm.controls.birthDate)"></hc-date-input>
+<!--      <hc-date-input [formControlName]="'birthDate'" class="date-input"></hc-date-input>-->
+      <input [formControlName]="'birthDate'" class="input-text"/>
     </div>
     <div class="form-item">
       <label class="form-label">Job title:</label>
@@ -20,11 +28,14 @@
       <label class="form-label">Description:</label>
       <textarea [formControlName]="'description'" required="true" class="textarea" rows="4" style="max-width: 100%"></textarea>
     </div>
-    <div class="post-options">
-      <button class="btn btn-primary im-flex" type="submit">
-        <fa-icon [icon]="['fas', 'check']" size="1x"></fa-icon>
-        <span class="label">{{ profileForm.value.id == null ? 'Create' : 'Save changes' }}</span>
-      </button>
-    </div>
   </form>
+  <hr>
+  <h2>Portfolio</h2>
+  <h3>Personal Projects</h3>
+  <hc-projects [profile]="profile" [editMode]="true"></hc-projects>
+  <hr>
+  <h3>Working Experience</h3>
+  <div class="experiences">
+    <hc-experiences [profile]="profile" [editMode]="true"></hc-experiences>
+  </div>
 </div>

@@ -50,13 +50,13 @@
       <h1 class="section-title">Portfolio</h1>
       <h2>Personal Projects</h2>
       <p class="text-gray-2">A sample of my personal projects</p>
-      <hc-portfolio [profile]="profile"></hc-portfolio>
+      <hc-projects [profile]="profile"></hc-projects>
     </div>
     <div class="row">
       <h2>Working Experience</h2>
       <p class="text-gray-2">All the companies that I was part of</p>
       <div class="experiences">
-        <hc-experiences [experienceList]="profile.experienceList"></hc-experiences>
+        <hc-experiences [profile]="profile"></hc-experiences>
       </div>
     </div>
   </div>

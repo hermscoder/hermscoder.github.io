@@ -17,16 +17,15 @@ export class AuthService {
   public static USER_KEY: string = 'user';
 
   private baseUrl = environment.apiUrl + 'api/auth/';
-  private _currentUser!: UserSummarised;
+  // private _currentUser!: UserSummarised;
+  private _currentUser!: UserSummarised | undefined;
 
   constructor(private httpClient: HttpClient, private localStorageSerive: LocalStorageService) { }
 
   login(authenticationRequest: AuthenticationRequest): Observable<boolean> {
     return this.httpClient.post<AuthenticationResponse>(this.baseUrl + 'login', authenticationRequest)
       .pipe(map(data => {
-        this.localStorageSerive.store(AuthService.AUTHENTICATION_TOKEN_KEY, data.authenticationToken);
-        this.localStorageSerive.store(AuthService.USER_KEY,  JSON.stringify(data.user));
-        this.currentUser = data.user;
+        this.setAuthInformation(data);
         return true;
       }));
   }
@@ -38,13 +37,28 @@ export class AuthService {
   logout() {
     this.localStorageSerive.clear(AuthService.AUTHENTICATION_TOKEN_KEY);
     this.localStorageSerive.clear(AuthService.USER_KEY);
+    this.currentUser = undefined;
   }
 
-  get currentUser(): UserSummarised {
+  refreshToken(): Observable<boolean> {
+    return this.httpClient.get<AuthenticationResponse>(this.baseUrl + 'token_refresh')
+      .pipe(map(data => {
+        this.setAuthInformation(data);
+        return true;
+      }));
+  }
+
+  private setAuthInformation(data: AuthenticationResponse){
+    this.localStorageSerive.store(AuthService.AUTHENTICATION_TOKEN_KEY, data.authenticationToken);
+    this.localStorageSerive.store(AuthService.USER_KEY,  JSON.stringify(data.user));
+    this.currentUser = data.user;
+  }
+
+  get currentUser(): UserSummarised | undefined {
     return this._currentUser;
   }
 
-  set currentUser(value: UserSummarised) {
+  set currentUser(value: UserSummarised | undefined) {
     this._currentUser = value;
   }
 }

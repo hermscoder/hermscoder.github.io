@@ -1,10 +1,10 @@
 import {ExperienceDto} from "./experience-dto";
 import {ProjectDto} from "./project-dto";
-
-
+import {UserSummarised} from "./user-summarised";
 
 export class ProfileDetailsDto {
   id: string;
+  user: UserSummarised;
   givenName: string;
   familyName: string;
   birthDate: string;
@@ -14,8 +14,9 @@ export class ProfileDetailsDto {
   projectsList: ProjectDto[];
 
 
-  constructor(id: string, givenName: string, familyName: string, birthDate: string, jobTitle: string, description: string, experienceList: ExperienceDto[], projectsList: ProjectDto[]) {
+  constructor(id: string, user: UserSummarised, givenName: string, familyName: string, birthDate: string, jobTitle: string, description: string, experienceList: ExperienceDto[], projectsList: ProjectDto[]) {
     this.id = id;
+    this.user = user;
     this.givenName = givenName;
     this.familyName = familyName;
     this.birthDate = birthDate;

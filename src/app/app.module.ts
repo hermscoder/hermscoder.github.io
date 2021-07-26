@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { appRoutes } from './routes';
 import { ListPostsComponent } from './post/list-posts/list-posts.component';
 import { PostComponent } from './post/post/post.component';
-import { PortfolioComponent } from './portfolio/portfolio/portfolio.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxWebstorageModule} from "ngx-webstorage";
@@ -42,6 +41,7 @@ import {NgxPageScrollModule} from "ngx-page-scroll";
 import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import {DatePipe} from "@angular/common";
+import { ProjectsComponent } from './portfolio/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -51,14 +51,14 @@ import {DatePipe} from "@angular/common";
     HomeComponent,
     ListPostsComponent,
     PostComponent,
-    PortfolioComponent,
     PostCardComponent,
     SafeHtmlPipe,
     HtmlToPlaintextPipe,
     DateFormatPipe,
     WritePostComponent,
     ExperiencesComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,

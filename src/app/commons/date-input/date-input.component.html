@@ -3,24 +3,25 @@
     <input id="day" type="number"
            [formControlName]="'day'"
            required="true" placeholder="31"
-           class="input-text mr-1" style="width: 20%"
-           (keyup)="processInput($event, dayInput,monthInput)" (focus)="dayInput.select()" #dayInput/>
+           class="input-text mr-1" style="width: 15px"
+           (keyup)="processInput($event, dayInput,monthInput)"
+           (focus)="dayInput.select()"
+           #dayInput />
     <input id="month" type="number"
            [formControlName]="'month'"
            required="true" placeholder="12"
-           class="input-text mr-1" style="width: 20%"
-           (keyup)="processInput($event, monthInput,yearInput)" (focus)="monthInput.select()" #monthInput/>
+           class="input-text mr-1" style="width: 15px"
+           (keyup)="processInput($event, monthInput,yearInput)"
+           (focus)="monthInput.select()"
+           #monthInput />
     <input id="year" type="number"
            [formControlName]="'year'"
            required="true" placeholder="1990"
-           class="input-text mr-1" style="width: 54%"
-           (keyup)="processInput($event, yearInput)" (focus)="yearInput.select()" #yearInput/>
+           class="input-text mr-1" style="width: 30px"
+           (keyup)="processInput($event, yearInput)"
+           (focus)="yearInput.select()"
+           #yearInput />
   </div>
 </form>
-
-<!--<input-->
-<!--  type="text"-->
-<!--  class="d-none"-->
-<!--  [formControl]="toControl(ngControl.control)">-->
 
 

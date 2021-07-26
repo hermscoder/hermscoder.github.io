@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, Self, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, Self, SimpleChanges, ViewChild} from '@angular/core';
 import {AbstractControl, ControlValueAccessor, FormControl, FormGroup, NgControl} from "@angular/forms";
 
 @Component({
@@ -18,30 +18,39 @@ export class DateInputComponent implements OnInit,ControlValueAccessor  {
 
   // @ts-ignore
   dateInputForm: FormGroup;
+  value: string = '';
+
 
   constructor(@Self() public ngControl: NgControl) {
+    this.dateInputForm = new FormGroup({
+      day: new FormControl(),
+      month: new FormControl(),
+      year: new FormControl()
+    })
     this.ngControl.valueAccessor = this;
-
   }
 
   ngOnInit(): void {
-    this.initializeForm();
+    // this.initializeForm();
+    this.updateFormControls();
+    console.log("CALENDARIO INICIALIZOU");
   }
 
   initializeForm(){
     let day='', month='', year = '';
-    let pieces = this.ngControl.control?.value?.split('/');
+    // let pieces = this.ngControl.control?.value?.split('/');
+    let pieces = this.value?.split('/');
     if(pieces && pieces.length == 3) {
       day = pieces[0];
       month = pieces[1];
       year = pieces[2];
     }
 
-    this.dateInputForm = new FormGroup({
-      day: new FormControl([day]),
-      month: new FormControl([month]),
-      year: new FormControl([year])
-    })
+    this.dateInputForm.setValue({
+      day: day,
+      month: month,
+      year: year
+    });
   }
 
 
@@ -53,29 +62,15 @@ export class DateInputComponent implements OnInit,ControlValueAccessor  {
       maxLength = 4;
     }
 
-    input.value =  input.value.replace('.', '')
-                              .replace(',','')
-                              .replace('-','')
-                              .replace('+','')
-                              .replace('\\d', '');
+    input.value = input.value.replace('.', '')
+                                .replace(',','')
+                                .replace('-','')
+                                .replace('+','')
+                                .replace('\\d', '');
     if(input.value.length >= maxLength){
-      input.value = this.getCorrectValueIfNecessary(input);
-
-      //if the key pressed is a number and not a arrow key or etc
-      if ($event.keyCode >= 48 && $event.keyCode <= 57) {
-        let exceededInput = input.value.substr(maxLength, input.value.length);
-        input.value = input.value.substr(0, maxLength);
-
-        if(nextInput) {
-          if(exceededInput) {
-            nextInput.value = exceededInput;
-          }
-          nextInput.focus();
-          return false;
-        }
-      }
+      this.dateInputForm.value[input.id] = input.value = this.getCorrectValueIfNecessary(input);
     }
-    this.updateFormControl();
+    this.updateNgControlValue();
     return true;
   }
 
@@ -104,16 +99,40 @@ export class DateInputComponent implements OnInit,ControlValueAccessor  {
     return correctValue;
   }
 
-  updateFormControl(){
-    this.ngControl.control?.setValue(this.dayInput?.nativeElement.value + '/'
-      + this.monthInput?.nativeElement.value
-      + '/' + this.yearInput?.nativeElement.value);
+  private updateFormControls(){
+
+    let day='', month='', year = '';
+    // let pieces = this.ngControl.control?.value?.split('/');
+    let pieces = this.value?.split('/');
+    if(pieces && pieces.length == 3) {
+      day = pieces[0];
+      month = pieces[1];
+      year = pieces[2];
+    }
+
+    this.dateInputForm.setValue({
+      day: day,
+      month: month,
+      year: year
+    });
   }
 
-  //ControlValueAccessor interface
-  writeValue(obj: any) {  }
+  private getFullDate(form: FormGroup) {
+    return form.value.day + '/'
+      + form.value.month + '/'
+      + form.value.year;
+  }
 
-  registerOnChange(fn: any) { }
+  updateNgControlValue(){
+    this.ngControl.control?.setValue(this.getFullDate(this.dateInputForm));
+  }
+  //ControlValueAccessor interface
+  writeValue(value: any) {
+    this.value = value;
+    this.updateFormControls();
+  }
+
+  registerOnChange(fn: any) {}
 
   registerOnTouched(fn: any) { }
 

@@ -1,5 +1,11 @@
-<ul *ngIf="experienceList != null" class="experience-timeline">
-  <li *ngFor="let experience of experienceList?.reverse()" class="experience"
+<ul *ngIf="profile?.experienceList != null" class="experience-timeline">
+  <li *ngIf="editMode" class="add-experience" (click)="initializeExperienceModal(addExperienceModal)">
+    <h1 class="d-flex">
+      <span class="mr-1" style="font-size: 4rem">+</span>
+      Add new experience
+    </h1>
+  </li>
+  <li *ngFor="let experience of (editMode ? profile?.experienceList : profile?.experienceList?.reverse())" class="experience"
       [attr.data-date]="experience.startDate | dateToStrFormat: 'MMM yyyy'">
     <div >
       <div class="experience-information">
@@ -11,3 +17,40 @@
     </div>
   </li>
 </ul>
+
+<hc-modal id="addExperienceModal" modalWidth="400px" #addExperienceModal>
+  <form class="form" [formGroup]="addExperienceForm" (ngSubmit)="addExperience()">
+    <div class="form-item">
+      <label class="form-label">Job title:</label>
+      <input type="text" [formControlName]="'jobTitle'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Company Name:</label>
+      <input type="text" [formControlName]="'companyName'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Start date:</label>
+<!--      <hc-date-input [formControlName]="'startDate'" class="date-input"></hc-date-input>-->
+      <input [formControlName]="'startDate'" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">End date:</label>
+<!--      <hc-date-input [formControlName]="'endDate'" class="date-input"></hc-date-input>-->
+      <input [formControlName]="'endDate'" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Location:</label>
+      <input type="text" [formControlName]="'local'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Description:</label>
+      <textarea type="text" [formControlName]="'description'" required="true" class="textarea"></textarea>
+    </div>
+    <div class="d-flex mt-2">
+      <a title="Close" class="im-flex d-flex" style="text-decoration: none" (click)="modalService.close('addExperienceModal')">
+        <button class="btn btn-default im-flex" type="button">Cancel</button>
+      </a>
+      <button class="btn btn-primary im-flex" type="submit">Add</button>
+    </div>
+  </form>
+</hc-modal>

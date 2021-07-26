@@ -3,7 +3,6 @@ import {HomeComponent} from "./home/home.component";
 import {AuthGuard} from "./_guards/auth.guard";
 import {ListPostsComponent} from "./post/list-posts/list-posts.component";
 import {PostComponent} from "./post/post/post.component";
-import {PortfolioComponent} from "./portfolio/portfolio/portfolio.component";
 import {PostResolver} from "./_resolvers/PostResolver";
 import {RouteData} from "./_models/route-data";
 import {WritePostComponent} from "./post/write-post/write-post.component";
@@ -45,7 +44,6 @@ export const appRoutes: Routes = [
       { path: ROUTES.WRITE_POST.url, component: WritePostComponent,canActivate: [AuthGuard] },
       { path: ROUTES.EDIT_POST.url + ':id', component: WritePostComponent, resolve: { post: PostResolver }, canActivate: [AuthGuard]},
       { path: ROUTES.POST_DETAILS.url + ':id', component: PostComponent, resolve: { post: PostResolver }},
-      { path: ROUTES.PORTFOLIO.url, component: PortfolioComponent },
       { path: ROUTES.EDIT_PROFILE.url, component: EditProfileComponent, resolve: { profile: ProfileResolver }, canActivate: [AuthGuard]  },
     ]
   },

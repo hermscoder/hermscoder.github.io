@@ -25,6 +25,10 @@
   /*Post colors*/
   --default-post-title-color: #000000;
   --default-post-subtitle-color: #bbbbbb;
+
+
+  --default-label-width-percentage: 25%;
+  --default-input-width-percentage: 75%;
 }
 
 * {
@@ -151,8 +155,8 @@ h1, h2, h3, h4, h5 {
 
 .form-label{
   width: auto;
-  margin-right: 10px;
   font-size: 15px;
+  width: var(--default-label-width-percentage);
 }
 
   /*******************/
@@ -163,7 +167,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 5px;
   padding: 10px;
   transition: all 0.6s;
-  width: 90%;
+  width: var(--default-input-width-percentage);
 }
 .input-text:focus-visible {
   outline: none;
@@ -178,13 +182,19 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.date-input {
+  border-radius: 5px;
+  transition: all 0.6s;
+  width: var(--default-input-width-percentage);
+}
+
 .textarea {
   border: 1px solid var(--default-post-subtitle-color);
   font-family: 'Lato', 'Arial', sans-serif;
   border-radius: 5px;
   padding: 10px;
   transition: all 0.6s;
-  width: 90%;
+  width: var(--default-input-width-percentage);
 }
 
 /* Firefox */

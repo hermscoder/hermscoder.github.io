@@ -19,7 +19,7 @@
   </a>
   <div *ngIf="authService.isAuthenticated()" style="margin-top: 20px">
     <a title="Options" class="item no-flex" #dropDownToggler>
-      {{authService.currentUser.name}}
+      {{authService.currentUser?.name}}
     </a>
     <hc-dropdown [dropDownToggle]="dropDownToggler" dropDownDirection="left bottom">
       <button class="btn btn-link mb-0 mt-0" [routerLink]="[ROUTES.EDIT_PROFILE.url]">Edit portfolio</button>

@@ -6,6 +6,10 @@ import {ExperienceDto} from "../../_models/experience-dto";
 import {ProjectDto} from "../../_models/project-dto";
 import {DatePipe} from "@angular/common";
 import {DateFormatPipe} from "../../_pipes/date-format-pipe";
+import {ProfileService} from "../../_services/profile.service";
+import {AuthService} from "../../_services/auth.service";
+import {AuthenticationRequest} from "../../_models/authentication-request";
+import {ROUTES} from "../../routes";
 
 @Component({
   selector: 'app-edit-profile',
@@ -16,9 +20,10 @@ export class EditProfileComponent implements OnInit {
 
   profileForm: FormGroup;
   profile: ProfileDetailsDto | undefined;
-  constructor(private activatedRoute:ActivatedRoute, private dateFormatPipe : DateFormatPipe) {
+  constructor(private activatedRoute:ActivatedRoute, private profileService: ProfileService, private authService: AuthService) {
     this.profileForm = new FormGroup({
       id: new FormControl(),
+      user: new FormControl(),
       givenName: new FormControl(),
       familyName: new FormControl(),
       birthDate: new FormControl(),
@@ -39,11 +44,24 @@ export class EditProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.profileForm.value);
+    const _this = this;
+    this.profileService.updatePersonalData(this.profileForm.value).subscribe((res) => {
+      //checking if we changed user properties, so we have to refresh the token and current user.
+      if(_this.profile && _this.profile.user != res.user){
+        _this.refreshToken();
+      }
+      _this.profile = res;
+      _this.profileForm.patchValue(res);
+    });
   }
 
-  toControl(absCtrl: AbstractControl): FormControl {
-    const ctrl = absCtrl as FormControl;
-    return ctrl ;
+  private refreshToken(){
+    this.authService.refreshToken().subscribe(success => {
+      if(success) {
+        console.log('deu baum');
+      } else {
+        console.log('REFRESH TOKEN FAILED');
+      }
+    });
   }
 }

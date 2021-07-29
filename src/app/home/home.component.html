@@ -68,18 +68,18 @@
     <div class="row">
       <h1 class="section-title">Contact me</h1>
       <div class="contact-me-form">
-        <form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()">
           <div class="form-item-column">
             <label class="form-label">Name</label>
-            <input type="text" [formControlName]="'title'" required="true" class="input-text"/>
+            <input type="text" [formControlName]="'senderName'" required="true" class="input-text"/>
           </div>
           <div class="form-item-column">
             <label class="form-label">Email address</label>
-            <input type="text" [formControlName]="'email'" required="true" class="input-text"/>
+            <input type="text" [formControlName]="'senderEmail'" required="true" class="input-text"/>
           </div>
           <div class="form-item-column">
             <label class="form-label">Message</label>
-            <textarea [formControlName]="'message'" required="true" class="input-text" rows="4" style="max-width: 100%"></textarea>
+            <angular-editor [placeholder]="'Enter text here...'" formControlName="mailContent" [config]="editorConfig"></angular-editor>
           </div>
           <div class="form-item-column mt-2" style="text-align: right;">
             <button class="btn btn-primary im-flex w100 pt-2 pb-2" type="submit">Send</button>

@@ -5,6 +5,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {ProfileDetailsDto} from "../_models/profile-details-dto";
 import {ExperienceDto} from "../_models/experience-dto";
+import {ProjectDto} from "../_models/project-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import {ExperienceDto} from "../_models/experience-dto";
 export class ProfileService {
   readonly PROFILE_RESOURCE = 'profile';
   readonly EXPERIENCE_RESOURCE = 'experience';
+  readonly PROJECT_RESOURCE = 'project';
   readonly BASE_URL = environment.apiUrl;
 
 
@@ -28,6 +30,11 @@ export class ProfileService {
   addExperience(experience: ExperienceDto): Observable<ExperienceDto>{
     return this.httpClient.post<ExperienceDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/' + experience.profileId + '/' + this.EXPERIENCE_RESOURCE
       , experience);
+  }
+
+  addProject(project: ProjectDto): Observable<ProjectDto>{
+    return this.httpClient.post<ProjectDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/' + project.profileId + '/' + this.PROJECT_RESOURCE
+      , project);
   }
 
 }

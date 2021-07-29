@@ -1,0 +1,9 @@
+<div class="droppable"
+     style="background-image: url({{getBackgroundImg()}})" hcDnd (fileDropped)="onFileDropped($event)">
+  <input type="file" #fileDropRef id="fileDropRef"  multiple (change)="fileBrowseHandler($event)"/>
+  <h3 class="fs-sm">Drag a file or use the button bellow.</h3>
+  <label for="fileDropRef" class="btn btn-light">Browse for file</label>
+</div>
+<div *ngIf="allowMultipleFiles">
+  <img src="{{file.preview}}" class="img-thumbnail" *ngFor="let file of files">
+</div>

@@ -42,6 +42,7 @@ import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import {DatePipe} from "@angular/common";
 import { ProjectsComponent } from './portfolio/projects/projects.component';
+import {DndDirective} from "./commons/directives/dnd.directive";
 
 @NgModule({
   declarations: [
@@ -74,11 +75,14 @@ import { ProjectsComponent } from './portfolio/projects/projects.component';
     NgxPageScrollCoreModule.forRoot({duration: 500, scrollOffset: 100}),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},
     ErrorInterceptorProvider,
     PostResolver,
     ProfileResolver,
     DateFormatPipe
+  ],
+  exports: [
+    DndDirective
   ],
   bootstrap: [AppComponent]
 })

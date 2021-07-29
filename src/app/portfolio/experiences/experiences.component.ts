@@ -41,7 +41,7 @@ export class ExperiencesComponent implements OnInit {
   }
 
   addExperience() {
-    this.addExperienceForm.value.profileId = this.profile?.id;
+    this.addExperienceForm.controls['profileId'].setValue(this.profile?.id);
     console.log(this.addExperienceForm.value);
     this.profileService.addExperience(this.addExperienceForm.value)
       .subscribe((res) => {

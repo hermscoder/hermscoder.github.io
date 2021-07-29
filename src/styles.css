@@ -153,7 +153,13 @@ h1, h2, h3, h4, h5 {
   flex-direction: column;
 }
 
-.form-label{
+.form-item-column .form-label{
+  width: auto;
+  font-size: 15px;
+  width: -webkit-fill-available;
+}
+
+.form-item .form-label{
   width: auto;
   font-size: 15px;
   width: var(--default-label-width-percentage);
@@ -167,12 +173,18 @@ h1, h2, h3, h4, h5 {
   border-radius: 5px;
   padding: 10px;
   transition: all 0.6s;
-  width: var(--default-input-width-percentage);
 }
 .input-text:focus-visible {
   outline: none;
   border: 1px solid var(--default-primary-color);
   transform: scaleX(1.005);
+}
+.form-item .input-text {
+  width: var(--default-input-width-percentage);
+}
+
+.form-item-column .input-text {
+  width: -webkit-fill-available;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -187,6 +199,26 @@ input::-webkit-inner-spin-button {
   transition: all 0.6s;
   width: var(--default-input-width-percentage);
 }
+.form-item .date-input {
+  width: var(--default-input-width-percentage);
+}
+
+.form-item-column .date-input {
+  width: -webkit-fill-available;
+}
+
+.upload-input {
+  border-radius: 5px;
+  transition: all 0.6s;
+  width: var(--default-input-width-percentage);
+}
+.form-item .upload-input {
+  width: var(--default-input-width-percentage);
+}
+
+.form-item-column .upload-input {
+  width: -webkit-fill-available;
+}
 
 .textarea {
   border: 1px solid var(--default-post-subtitle-color);
@@ -196,7 +228,13 @@ input::-webkit-inner-spin-button {
   transition: all 0.6s;
   width: var(--default-input-width-percentage);
 }
+.form-item .textarea {
+  width: var(--default-input-width-percentage);
+}
 
+.form-item-column .textarea {
+  width: -webkit-fill-available;
+}
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ProfileDetailsDto} from "../../_models/profile-details-dto";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ModalService} from "../../commons";
+import {ProfileService} from "../../_services/profile.service";
 
 @Component({
   selector: 'hc-projects',
@@ -14,13 +15,14 @@ export class ProjectsComponent implements OnInit {
 
   addProjectForm: FormGroup;
 
-  constructor(public modalService: ModalService) {
+  constructor(public modalService: ModalService, private profileService: ProfileService) {
     this.addProjectForm = new FormGroup({
       id: new FormControl(),
       profileId: new FormControl(),
       title: new FormControl(),
       urlToProject: new FormControl(),
       description: new FormControl(),
+      thumbnail: new FormControl(),
     });
   }
 
@@ -32,8 +34,19 @@ export class ProjectsComponent implements OnInit {
   }
 
   addProject() {
-    console.log(this.addProjectForm.value);
+    this.addProjectForm.controls['profileId'].setValue(this.profile?.id);
+    this.profileService.addProject(this.addProjectForm.value).subscribe((res) => {
+      let array = this.profile?.projectsList;
+      // @ts-ignore
+      this.profile?.projectsList = [res].concat(array);
+      this.addProjectForm.reset();
+      this.modalService.close('addProjectModal');
+    }, (error => {
+      console.error(error);
+    }))
   }
 
-  //TODO LER ARTIGO: https://medium.com/@tarekabdelkhalek/how-to-create-a-drag-and-drop-file-uploading-in-angular-78d9eba0b854
+  changeProjectThumbnail(data: any) {
+    this.addProjectForm.controls['thumbnail'].setValue(data);
+  }
 }

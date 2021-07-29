@@ -46,11 +46,14 @@
 }
 
 .droppable {
-  display: flex;
+  display: block;
+  flex-direction: column;
   height: 100px;
   border: 3px dashed var(--default-text-color);
   color: var(--default-text-color);
+  text-align: center;
 }
+
 @media only screen
 and (max-width: 800px) {
   .project-collection {

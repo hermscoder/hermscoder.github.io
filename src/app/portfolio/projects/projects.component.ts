@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit {
 
   addProjectForm: FormGroup;
 
-  constructor(public modalService: ModalService, private profileService: ProfileService) {
+  constructor(private modalService: ModalService, private profileService: ProfileService) {
     this.addProjectForm = new FormGroup({
       id: new FormControl(),
       profileId: new FormControl(),
@@ -34,33 +34,44 @@ export class ProjectsComponent implements OnInit {
     window.open(urlToProject);
   }
 
-  submitProjectForm() {
+  openModal(modalId: string) {
+    this.addProjectForm.controls['thumbnail'].setValue(null);
+    this.addProjectForm.reset();
+    this.modalService.open(modalId);
+  }
+
+  closeModal(modalId: string) {
+    this.modalService.close(modalId);
+  }
+
+  submitProjectForm(modalId: string) {
     this.addProjectForm.controls['profileId'].setValue(this.profile?.id);
     if(!this.addProjectForm.value.id){
-      this.addProject();
+      this.addProject(modalId);
     } else {
-      this.updateProject();
+      this.updateProject(modalId);
     }
   }
 
-  addProject() {
+  addProject(modalId: string) {
     this.profileService.addProject(this.addProjectForm.value).subscribe((res) => {
       let array = this.profile?.projectsList;
       // @ts-ignore
       this.profile?.projectsList = [res].concat(array);
       this.addProjectForm.reset();
-      this.modalService.close('addOrEditProjectModal');
+      this.closeModal(modalId);
     }, (error => {
       console.error(error);
     }))
   }
 
-  updateProject(){
+  updateProject(modalId: string){
     this.profileService.updateProject(this.addProjectForm.value).subscribe((res) => {
       let array = this.profile?.projectsList;
       // @ts-ignore
+      //replacing old by updated element in the projectsList
       this.profile?.projectsList = array.map(x => [res].find(({ id }) => id === x.id) || x);
-      this.modalService.close('addOrEditProjectModal');
+      this.closeModal(modalId);
       this.addProjectForm.reset();
     }, (error => {
       console.error(error);

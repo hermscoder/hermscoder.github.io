@@ -54,7 +54,7 @@
 .experience div {
   overflow-y: hidden;
   transition: transform 0.3s ease-in-out;
-  max-height: 105px;
+  max-height: 150px;
 }
 
 .experience-information {
@@ -95,6 +95,21 @@
 }
 
 .add-experience:hover{
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.btn-edit {
+  z-index: 2;
+  position: relative;
+  border: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--default-link-color);
+  left: 85%;
+  width: auto;
+}
+
+.add-experience:hover .btn-edit{
   opacity: 1;
   transform: scale(1, 1);
 }

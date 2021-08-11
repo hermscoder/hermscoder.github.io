@@ -25,6 +25,10 @@ export class UploaderComponent implements OnInit {
     value = value.filter((x): x is MediaDto => x !== null);
     if(value && value.length > 0){
       this._mediaList = value;
+      this.files = [];
+    } else {
+      this._mediaList = [];
+      this.files = [];
     }
   }
 

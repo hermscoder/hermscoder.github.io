@@ -19,7 +19,7 @@ export class ExperiencesComponent implements OnInit {
   @Input() editMode: boolean = false;
   addExperienceForm: FormGroup;
 
-  constructor(public modalService: ModalService, private profileService: ProfileService) {
+  constructor(private modalService: ModalService, private profileService: ProfileService) {
     this.addExperienceForm = new FormGroup({
       id: new FormControl(),
       profileId: new FormControl(),
@@ -33,30 +33,58 @@ export class ExperiencesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('INITIALIZING');
   }
 
-  navigateTo(urlToProject: string) {
-    window.open(urlToProject);
-  }
-
-  addExperience() {
+  submitExperienceForm(modalId: string){
     this.addExperienceForm.controls['profileId'].setValue(this.profile?.id);
-    console.log(this.addExperienceForm.value);
+    if(!this.addExperienceForm.value.id){
+      this.addExperience(modalId);
+    } else {
+      this.updateExperience(modalId);
+    }
+  }
+
+  private addExperience(modalId: string) {
     this.profileService.addExperience(this.addExperienceForm.value)
       .subscribe((res) => {
         let array = this.profile?.experienceList;
         // @ts-ignore
         this.profile?.experienceList = [res].concat(array);
-        // this.profile?.experienceList?.push(res);
-        this.modalService.close('addExperienceModal');
+        this.modalService.close(modalId);
       }, (error => {
         console.error(error);
       }))
   }
 
-  initializeExperienceModal(addExperienceModal: ModalComponent) {
+  private updateExperience(modalId: string) {
+    this.profileService.updateExperience(this.addExperienceForm.value)
+      .subscribe((res) => {
+        let array = this.profile?.experienceList;
+        // @ts-ignore
+        //replacing old by updated element in the experienceList
+        this.profile?.experienceList = array.map(x => [res].find(({ id }) => id === x.id) || x);
+        this.modalService.close(modalId);
+      }, (error => {
+        console.error(error);
+      }))
+  }
+
+  closeModal(modalId: string) {
     this.addExperienceForm.reset();
-    this.modalService.open(addExperienceModal.id);
+    this.modalService.close(modalId);
+  }
+
+  initializeNewExperienceModal(modalId: string) {
+    this.addExperienceForm.reset();
+    this.openModal(modalId)
+  }
+
+  openModal(modalId:string) {
+    this.modalService.open(modalId);
+  }
+
+  editExperienceInformation(experience: ExperienceDto, modalId: string) {
+    this.addExperienceForm.patchValue(experience);
+    this.openModal(modalId);
   }
 }

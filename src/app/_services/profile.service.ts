@@ -27,11 +27,6 @@ export class ProfileService {
     return this.httpClient.put<ProfileDetailsDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/' + profile.id, profile);
   }
 
-  addExperience(experience: ExperienceDto): Observable<ExperienceDto>{
-    return this.httpClient.post<ExperienceDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/' + experience.profileId + '/' + this.EXPERIENCE_RESOURCE
-      , experience);
-  }
-
   addProject(project: ProjectDto): Observable<ProjectDto>{
     return this.httpClient.post<ProjectDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/'
       + project.profileId + '/' + this.PROJECT_RESOURCE, project);
@@ -42,4 +37,13 @@ export class ProfileService {
       + project.profileId + '/' + this.PROJECT_RESOURCE + '/' + project.id, project);
   }
 
+  addExperience(experience: ExperienceDto): Observable<ExperienceDto>{
+    return this.httpClient.post<ExperienceDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/' + experience.profileId + '/' + this.EXPERIENCE_RESOURCE
+      , experience);
+  }
+
+  updateExperience(experience: ExperienceDto): Observable<ExperienceDto>{
+    return this.httpClient.put<ExperienceDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/'
+      + experience.profileId + '/' + this.EXPERIENCE_RESOURCE  + '/' + experience.id, experience);
+  }
 }

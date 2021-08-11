@@ -1,5 +1,5 @@
 <ul *ngIf="profile?.experienceList != null" class="experience-timeline">
-  <li *ngIf="editMode" class="add-experience" (click)="initializeExperienceModal(addExperienceModal)">
+  <li *ngIf="editMode" class="add-experience" (click)="initializeNewExperienceModal(addExperienceModal.id)">
     <h1 class="d-flex">
       <span class="mr-1" style="font-size: 4rem">+</span>
       Add new experience
@@ -8,6 +8,9 @@
   <li *ngFor="let experience of (editMode ? profile?.experienceList : profile?.experienceList?.reverse())" class="experience"
       [attr.data-date]="experience.startDate | dateToStrFormat: 'MMM yyyy'">
     <div >
+      <button *ngIf="editMode" class="btn btn-edit im-flex fs-lg" (click)="editExperienceInformation(experience, addExperienceModal.id)">
+        <fa-icon [icon]="['fas', 'pen-square']" size="1x"></fa-icon>
+      </button>
       <div class="experience-information">
         <h3>{{experience.jobTitle}}</h3>
         <span class="text-gray-3">{{experience.companyName}} - {{experience.local}}</span><br>
@@ -19,7 +22,7 @@
 </ul>
 
 <hc-modal id="addExperienceModal" modalWidth="400px" #addExperienceModal>
-  <form class="form" [formGroup]="addExperienceForm" (ngSubmit)="addExperience()">
+  <form class="form" [formGroup]="addExperienceForm" (ngSubmit)="submitExperienceForm(addExperienceModal.id)">
     <div class="form-item">
       <label class="form-label">Job title:</label>
       <input type="text" [formControlName]="'jobTitle'" required="true" class="input-text"/>
@@ -30,12 +33,10 @@
     </div>
     <div class="form-item">
       <label class="form-label">Start date:</label>
-<!--      <hc-date-input [formControlName]="'startDate'" class="date-input"></hc-date-input>-->
       <input [formControlName]="'startDate'" class="input-text"/>
     </div>
     <div class="form-item">
       <label class="form-label">End date:</label>
-<!--      <hc-date-input [formControlName]="'endDate'" class="date-input"></hc-date-input>-->
       <input [formControlName]="'endDate'" class="input-text"/>
     </div>
     <div class="form-item">
@@ -47,10 +48,12 @@
       <textarea type="text" [formControlName]="'description'" required="true" class="textarea"></textarea>
     </div>
     <div class="d-flex mt-2">
-      <a title="Close" class="im-flex d-flex" style="text-decoration: none" (click)="modalService.close('addExperienceModal')">
+      <a title="Close" class="im-flex d-flex" style="text-decoration: none" (click)="closeModal(addExperienceModal.id)">
         <button class="btn btn-default im-flex" type="button">Cancel</button>
       </a>
-      <button class="btn btn-primary im-flex" type="submit">Add</button>
+      <button class="btn btn-primary im-flex" type="submit">
+        {{addExperienceForm.value.id == null ? 'Add' : 'Save'}}
+      </button>
     </div>
   </form>
 </hc-modal>

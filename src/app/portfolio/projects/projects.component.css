@@ -54,6 +54,20 @@
   text-align: center;
 }
 
+.btn-edit {
+  z-index: 2;
+  border: 0px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--default-link-color);
+  margin-left: 5%;
+}
+
+.btn-edit:hover {
+  filter: brightness(1.5);
+  transform: scale(1.1);
+}
+
 @media only screen
 and (max-width: 800px) {
   .project-collection {
@@ -69,5 +83,10 @@ and (max-width: 800px) {
   .project-description {
     text-align: center;
     opacity: 1;
+  }
+
+
+  .btn-edit {
+    margin-left: 40%;
   }
 }

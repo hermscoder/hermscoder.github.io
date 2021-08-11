@@ -17,6 +17,7 @@
   /*--default-primary-color: #BA7C6C;*/
   --default-primary-color: rgb(var(--default-primary-color-rgb-values));
   --default-primary-color-rgb-values: 108, 171, 187;
+  --default-link-color: #3281b7;
 
   /*Card colors*/
   --default-card-title-color: #000000;
@@ -116,10 +117,11 @@ html {
   color: black;
 }
 
+
 .btn-link {
   border: 0px;
   background-color: #ffffff;
-  color: #3281b7;
+  color: var(--default-link-color);
 }
 
 /*******************/

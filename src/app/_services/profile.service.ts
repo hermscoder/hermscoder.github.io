@@ -33,8 +33,13 @@ export class ProfileService {
   }
 
   addProject(project: ProjectDto): Observable<ProjectDto>{
-    return this.httpClient.post<ProjectDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/' + project.profileId + '/' + this.PROJECT_RESOURCE
-      , project);
+    return this.httpClient.post<ProjectDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/'
+      + project.profileId + '/' + this.PROJECT_RESOURCE, project);
+  }
+
+  updateProject(project: ProjectDto): Observable<ProjectDto>{
+    return this.httpClient.put<ProjectDto>(this.BASE_URL + this.PROFILE_RESOURCE + '/'
+      + project.profileId + '/' + this.PROJECT_RESOURCE + '/' + project.id, project);
   }
 
 }

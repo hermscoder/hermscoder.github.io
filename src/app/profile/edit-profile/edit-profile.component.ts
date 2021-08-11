@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {ProfileDetailsDto} from "../../_models/profile-details-dto";
@@ -10,17 +10,22 @@ import {ProfileService} from "../../_services/profile.service";
 import {AuthService} from "../../_services/auth.service";
 import {AuthenticationRequest} from "../../_models/authentication-request";
 import {ROUTES} from "../../routes";
+import {first} from "rxjs/operators";
+import {PageScrollService} from "ngx-page-scroll-core";
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css']
 })
-export class EditProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit, AfterViewInit {
 
   profileForm: FormGroup;
   profile: ProfileDetailsDto | undefined;
-  constructor(private activatedRoute:ActivatedRoute, private profileService: ProfileService, private authService: AuthService) {
+  constructor(private activatedRoute:ActivatedRoute,
+              private profileService: ProfileService,
+              private authService: AuthService,
+              private pageScrollService: PageScrollService) {
     this.profileForm = new FormGroup({
       id: new FormControl(),
       user: new FormControl(),
@@ -42,6 +47,13 @@ export class EditProfileComponent implements OnInit {
       }
     });
   }
+  ngAfterViewInit(): void {
+      this.pageScrollService.scroll({
+        document: document,
+        scrollTarget: '#profile',
+      });
+  }
+
 
   onSubmit() {
     const _this = this;

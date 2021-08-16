@@ -1,0 +1,23 @@
+<form class="form" [formGroup]="sharedOnLinkedInForm" (ngSubmit)="onSubmit()">
+  <div class="form-item-column">
+    <fa-icon [icon]="['fab', 'linkedin']" size="1x" style="color: #0a66c2;"></fa-icon>
+    <angular-editor [placeholder]="'Enter text here...'" formControlName="postText" [config]="editorConfig"></angular-editor>
+  </div>
+<!--  <img [src]="post.thumbnail?.url | 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwohnungnein.icu%2Fzcdooy%2F3rdaBj4bVgNOfurQhUUuAgHaEI.jpg&f=1&nofb=1'">-->
+  <div class="post-article-info">
+    <img [src]="'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwohnungnein.icu%2Fzcdooy%2F3rdaBj4bVgNOfurQhUUuAgHaEI.jpg&f=1&nofb=1'">
+    <div class="ml-2">
+      <h6>{{post?.title}}</h6>
+      <span class="fs-sm text-gray-2">{{getCurrentUrl()}}</span>
+    </div>
+  </div>
+  <div class="buttons mt-2" style="text-align: right;">
+    <button class="btn btn-default pt-2 pb-2" type="button" (click)="cancel()">Cancel</button>
+    <button class="btn btn-primary linkedin-color pt-2 pb-2" type="submit" [disabled]="!sharedOnLinkedInForm.dirty && !sharedOnLinkedInForm.valid">Share</button>
+  </div>
+</form>
+
+<div class="all" *ngIf="loadingShare">
+  <hc-loader></hc-loader>
+</div>
+

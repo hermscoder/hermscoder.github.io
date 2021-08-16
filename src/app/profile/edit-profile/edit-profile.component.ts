@@ -35,7 +35,10 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
       jobTitle: new FormControl(),
       description: new FormControl(),
       experienceList: new FormControl(),
-      projectsList: new FormControl()
+      projectsList: new FormControl(),
+      linkedIn: new FormControl(),
+      instagram: new FormControl(),
+      twitter: new FormControl()
     })
   }
 

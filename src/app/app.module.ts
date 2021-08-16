@@ -18,7 +18,7 @@ import { PostCardComponent } from './post/post-card/post-card.component';
 import {SafeHtmlPipe} from "./_pipes/safe-html-pipe";
 import {HtmlToPlaintextPipe} from "./_pipes/html-to-plaintext-pipe";
 import {DateFormatPipe} from "./_pipes/date-format-pipe";
-import {PostResolver} from "./_resolvers/PostResolver";
+import {PostResolver} from "./_resolvers/post-resolver";
 import { WritePostComponent } from './post/write-post/write-post.component';
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
@@ -29,12 +29,12 @@ import {
   faCheckSquare, faChevronCircleLeft,
   faChevronLeft,
   faPen,
-  faPenSquare,
+  faPenSquare, faShareAlt, faShareAltSquare,
   faSquare
 } from "@fortawesome/free-solid-svg-icons";
 import {faStackOverflow, faGithub, faMedium, faCodepen, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faTwitter} from "@fortawesome/free-brands-svg-icons/faTwitter";
-import {ProfileResolver} from "./_resolvers/ProfileResolver";
+import {ProfileResolver} from "./_resolvers/profile-resolver";
 import {ErrorInterceptor, ErrorInterceptorProvider} from "./_services/error.interceptor";
 import { ExperiencesComponent } from './portfolio/experiences/experiences.component';
 import {NgxPageScrollModule} from "ngx-page-scroll";
@@ -43,6 +43,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import {DatePipe} from "@angular/common";
 import { ProjectsComponent } from './portfolio/projects/projects.component';
 import {DndDirective} from "./commons/directives/dnd.directive";
+import { LinkedinCallbackComponent } from './callbacks/linkedin-callback/linkedin-callback.component';
+import { ShareLinkedinComponent } from './post/share-linkedin/share-linkedin.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import {DndDirective} from "./commons/directives/dnd.directive";
     WritePostComponent,
     ExperiencesComponent,
     EditProfileComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    LinkedinCallbackComponent,
+    ShareLinkedinComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,7 @@ import {DndDirective} from "./commons/directives/dnd.directive";
     AngularEditorModule,
     FontAwesomeModule,
     NgxPageScrollModule,
-    NgxPageScrollCoreModule.forRoot({duration: 500, scrollOffset: 100}),
+    NgxPageScrollCoreModule.forRoot({duration: 500, scrollOffset: 100})
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true},
@@ -88,6 +92,6 @@ import {DndDirective} from "./commons/directives/dnd.directive";
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faSquare, faCheckSquare, faSquare, faCheckSquare, faStackOverflow, faGithub, faLinkedin, faTwitter, faPen, faPenSquare, faArrowCircleLeft, faCheck);
+    library.addIcons(faSquare, faCheckSquare, faSquare, faCheckSquare, faStackOverflow, faGithub, faLinkedin, faTwitter, faPen, faPenSquare, faArrowCircleLeft, faCheck, faShareAltSquare, faShareAlt);
   }
 }

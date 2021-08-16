@@ -54,8 +54,8 @@ body.hc-modal-open {
   line-height: 25px;
   position: absolute;
   height: min-content;
-  top: 0px;
-  left: 93.5%;
+  top: 5px;
+  left: 92.5%;
   right: 0px;
   bottom: 0px;
   text-align: center;

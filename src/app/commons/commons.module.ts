@@ -7,12 +7,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UploaderComponent } from './uploader/uploader.component';
 import {AppModule} from "../app.module";
 import {DndDirective} from "./directives/dnd.directive";
+import { LoaderComponent } from './loader/loader.component';
 
 
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  declarations: [ModalComponent, DropdownComponent, DateInputComponent, UploaderComponent, DndDirective],
-    exports: [ModalComponent, DropdownComponent, DateInputComponent, UploaderComponent, DndDirective]
+  declarations: [ModalComponent, DropdownComponent, DateInputComponent, UploaderComponent, DndDirective, LoaderComponent],
+    exports: [ModalComponent, DropdownComponent, DateInputComponent, UploaderComponent, DndDirective, LoaderComponent]
 })
 export class CommonsModule { }

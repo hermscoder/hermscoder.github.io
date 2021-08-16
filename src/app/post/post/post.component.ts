@@ -1,9 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {PostForListDto} from "../../_models/post-for-list-dto";
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PostDetailsDto} from "../../_models/post-details-dto";
-import {ResolvedData} from "../../_models/resolved-data";
 import {ROUTES} from "../../routes";
+import {SocialMedia} from "../../_models/social-media";
+import {AuthService} from "../../_services/auth.service";
+import {SharePostService} from "../../_services/share-post.service";
+import {ModalService} from "../../commons";
 
 @Component({
   selector: 'hc-post',
@@ -11,11 +13,20 @@ import {ROUTES} from "../../routes";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
+
+  @ViewChild('sharePostOnLinkedInComponent')
+  sharePostOnLinkedInComponent: any | undefined;
+
   ROUTES = ROUTES;
   post: PostDetailsDto | any = {};
   error: any = null;
 
-  constructor(private route: ActivatedRoute) { }
+  socialMedia = SocialMedia;
+
+  constructor(private route: ActivatedRoute,
+              private authService: AuthService,
+              private sharePostService: SharePostService,
+              public modalService: ModalService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
@@ -28,4 +39,35 @@ export class PostComponent implements OnInit {
     });
   }
 
+  isMobileDevice() {
+    return window.outerWidth <= 800 && window.outerHeight <= 830;
+  }
+
+  sharePostMobile(post:PostDetailsDto){
+    this.sharePostService.sharePostMobile(post);
+  }
+
+  sharePostOnTwitter(post:PostDetailsDto): boolean{
+    return this.sharePostService.sharePostOnTwitter(post);
+  }
+
+  sharePostOnLinkedin(post:PostDetailsDto) {
+    //TODO add thumbnail to the POST entity
+    this.post.thumbnail = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwohnungnein.icu%2Fzcdooy%2F3rdaBj4bVgNOfurQhUUuAgHaEI.jpg&f=1&nofb=1';
+    this.sharePostService.getLinkedinAuthorizationCode(post)
+      .then(event => {
+        if(event.detail.code) {
+          this.sharePostOnLinkedInComponent.shareLinkedinParams = {
+            authorizationCode: event.detail.code,
+            redirectUri: this.sharePostService.getLinkedinRedirectURI()
+          };
+          this.modalService.open('sharePostOnLinkedInModal');
+        }
+      });
+  }
+
+
+  canEdit() {
+    return this.authService.isAuthenticated();
+  }
 }

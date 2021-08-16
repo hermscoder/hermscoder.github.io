@@ -35,8 +35,8 @@
 }
 
 .post-options {
-  width: 10%;
-  position: fixed;
+  width: 12%;
+  position: absolute;
   right: 10%;
   display: flex;
   flex-direction: column;
@@ -44,6 +44,7 @@
 
 .post-options .btn {
   width: fit-content;
+
 }
 .post-options .btn:hover .label{
   font-size: inherit;
@@ -91,11 +92,17 @@ and (max-width: 850px) {
     height: auto;
   }
   .post-options {
+    margin-top: 5%;
+    min-width: 120px;
     position: fixed;
     width: 15%;
     right: 0;
     align-items: flex-end;
   }
+  .post-options .btn {
+    min-width: 111px;
+  }
+
   .post-options .label {
     max-width: 0;
     font-size: 0px;

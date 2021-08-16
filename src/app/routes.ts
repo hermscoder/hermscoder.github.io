@@ -3,14 +3,16 @@ import {HomeComponent} from "./home/home.component";
 import {AuthGuard} from "./_guards/auth.guard";
 import {ListPostsComponent} from "./post/list-posts/list-posts.component";
 import {PostComponent} from "./post/post/post.component";
-import {PostResolver} from "./_resolvers/PostResolver";
+import {PostResolver} from "./_resolvers/post-resolver";
 import {RouteData} from "./_models/route-data";
 import {WritePostComponent} from "./post/write-post/write-post.component";
-import {ProfileResolver} from "./_resolvers/ProfileResolver";
+import {ProfileResolver} from "./_resolvers/profile-resolver";
 import {EditProfileComponent} from "./profile/edit-profile/edit-profile.component";
+import {LinkedinCallbackComponent} from "./callbacks/linkedin-callback/linkedin-callback.component";
 
 export const ROUTES = {
   HOME: { url: '', title: 'Home' },
+  LINKEDIN_CALLBACK: { url: 'callback/linkedin', title: 'LinkedIn' },
   LIST_POSTS: { url: 'posts', title: 'Posts' },
   POST_DETAILS: { url: 'posts/', title: 'Post' },
   WRITE_POST: { url: 'posts/write', title: 'Write post' },
@@ -47,6 +49,7 @@ export const appRoutes: Routes = [
       { path: ROUTES.EDIT_PROFILE.url, component: EditProfileComponent, resolve: { profile: ProfileResolver }, canActivate: [AuthGuard]  },
     ]
   },
+  { path: ROUTES.LINKEDIN_CALLBACK.url, component: LinkedinCallbackComponent},
   { path: "**", redirectTo: ROUTES.HOME.url, pathMatch: "full" }
 ];
 

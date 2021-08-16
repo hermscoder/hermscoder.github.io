@@ -1,0 +1,29 @@
+.btn {
+  font-family: Arial;
+  border-radius: 1.6rem;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #0a66c2;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.post-article-info {
+  background-color: #eef3f8;
+  display: flex;
+  padding: 10px;
+}
+
+.post-article-info img{
+  width: 30%;
+}
+.post-article-info h6 {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
+  margin: 5px 0;
+}

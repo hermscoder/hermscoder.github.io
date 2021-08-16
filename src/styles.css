@@ -99,6 +99,12 @@ html {
   filter: brightness(0.8);
 }
 
+.btn:disabled,
+.btn[disabled]{
+  opacity: 0.6;
+}
+
+
 .btn-primary {
   border: 1px solid #70b1c2;
   background-color: var(--default-primary-color);

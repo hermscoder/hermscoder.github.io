@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AngularEditorConfig} from "@kolkov/angular-editor";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PostDetailsDto} from "../../_models/post-details-dto";
 import {SharePostService} from "../../_services/share-post.service";
 import {SharePostContentDto} from "../../_models/share-post-content-dto";
@@ -24,7 +24,7 @@ export class ShareLinkedinComponent implements OnInit {
 
   constructor(private sharePostService: SharePostService) {
     this.sharedOnLinkedInForm = new FormGroup({
-      postText: new FormControl()
+      postText: new FormControl('', Validators.required)
     })
   }
 
@@ -53,22 +53,6 @@ export class ShareLinkedinComponent implements OnInit {
   getCurrentUrl(): string{
     return window.location.href;
   }
-
-  editorConfig: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: 'auto',
-    minHeight: '100',
-    maxHeight: 'auto',
-    width: 'auto',
-    minWidth: '0',
-    translate: 'yes',
-    enableToolbar: false,
-    showToolbar: false,
-    placeholder: 'Enter text here...',
-    defaultFontSize: "2",
-    sanitize: false
-  };
 
   cancel() {
     this.onCancel.emit();

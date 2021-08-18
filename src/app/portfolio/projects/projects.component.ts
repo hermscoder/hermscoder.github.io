@@ -34,7 +34,7 @@ export class ProjectsComponent implements OnInit {
     window.open(urlToProject);
   }
 
-  openModal(modalId: string) {
+  openModalForAddingNewProject(modalId: string) {
     this.addProjectForm.controls['thumbnail'].setValue(null);
     this.addProjectForm.reset();
     this.modalService.open(modalId);

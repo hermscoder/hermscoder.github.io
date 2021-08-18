@@ -10,9 +10,10 @@ export class PostDetailsDto {
   readingTime: number;
   text: string;
   thumbnail: MediaDto;
+  keyWords: string;
 
 
-  constructor(id: string, title: string, author: UserSummarised, date: string, subTitle: string, readingTime: number, text: string, thumbnail: MediaDto) {
+  constructor(id: string, title: string, author: UserSummarised, date: string, subTitle: string, readingTime: number, text: string, thumbnail: MediaDto, keyWords: string) {
     this.id = id;
     this.title = title;
     this.author = author;
@@ -21,5 +22,6 @@ export class PostDetailsDto {
     this.readingTime = readingTime;
     this.text = text;
     this.thumbnail = thumbnail;
+    this.keyWords = keyWords;
   }
 }

@@ -10,6 +10,7 @@ import {HttpEvent} from "@angular/common/http";
 import {UploadResponse} from "@kolkov/angular-editor/lib/angular-editor.service";
 import {ROUTES} from "../../routes";
 import {EditPostDto} from "../../_models/edit-post-dto";
+import {ProjectDto} from "../../_models/project-dto";
 
 @Component({
   selector: 'hc-write-post',
@@ -32,6 +33,8 @@ export class WritePostComponent implements OnInit {
       subTitle: new FormControl(),
       readingTime: new FormControl(),
       text: new FormControl(),
+      thumbnail: new FormControl(),
+      keyWords: new FormControl(),
     })
   }
 
@@ -53,20 +56,29 @@ export class WritePostComponent implements OnInit {
                                       formValue.subTitle,
                                       formValue.readingTime,
                                       formValue.text,
-                                      this.post?.author)).subscribe(response => {
+                                      this.post?.author,
+                                      formValue.thumbnail,
+                                      formValue.keyWords)).subscribe(response => {
         this.router.navigate([ROUTES.POST_DETAILS.url, response.id]);
       }, error => console.log(error));
     } else {
       this.postService.createPost(new WritePostDto(
-                                      undefined,
                                       formValue.title,
                                       formValue.subTitle,
                                       formValue.readingTime,
-                                      formValue.text)).subscribe(response => {
+                                      formValue.text,
+                                      formValue.thumbnail,
+                                      formValue.keyWords)).subscribe(response => {
         this.router.navigate([ROUTES.POST_DETAILS.url, response.id]);
       }, error => console.log(error));
     }
   }
+
+  changeProjectThumbnail(data: any) {
+    this.postForm.controls['thumbnail'].setValue(data);
+    this.postForm.controls['thumbnail'].markAsDirty();
+  }
+
 
   editorConfig: AngularEditorConfig = {
     editable: true,

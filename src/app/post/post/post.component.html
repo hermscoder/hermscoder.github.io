@@ -30,7 +30,7 @@
     <h1 class="post-title">{{post.title}}</h1>
     <h3 class="post-subtitle">{{post.subTitle}}</h3>
     <div class="post-image" >
-      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwohnungnein.icu%2Fzcdooy%2F3rdaBj4bVgNOfurQhUUuAgHaEI.jpg&f=1&nofb=1" [alt]="post.title">
+      <img src="{{post?.thumbnail?.url}}" [alt]="post.title">
     </div>
     <div class="post-content" [innerHTML]="post.text | safeHtml"></div>
   </article>

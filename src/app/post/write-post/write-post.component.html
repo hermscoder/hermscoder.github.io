@@ -29,6 +29,14 @@
       min
     </div>
     <div class="form-item">
+      <label class="form-label">Thumbnail image:</label>
+      <hc-uploader [mediaList]="[postForm.value.thumbnail]" (onUploadSuccessful)="changeProjectThumbnail($event);" class="upload-input"></hc-uploader>
+    </div>
+    <div class="form-item">
+      <label class="form-label">Keywords:</label>
+      <input type="text" [formControlName]="'keyWords'" required="true" class="input-text"/>
+    </div>
+    <div class="form-item">
       <label class="form-label">Post:</label>
     </div>
     <div class="form-item post-text">

@@ -52,8 +52,6 @@ export class PostComponent implements OnInit {
   }
 
   sharePostOnLinkedin(post:PostDetailsDto) {
-    //TODO add thumbnail to the POST entity
-    this.post.thumbnail = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwohnungnein.icu%2Fzcdooy%2F3rdaBj4bVgNOfurQhUUuAgHaEI.jpg&f=1&nofb=1';
     this.sharePostService.getLinkedinAuthorizationCode(post)
       .then(event => {
         if(event.detail.code) {

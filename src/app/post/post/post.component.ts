@@ -35,14 +35,6 @@ export class PostComponent implements OnInit {
       let resolvedData = data['post'];
       if(resolvedData.data != null) {
         this.post = resolvedData.data;
-
-        this.meta.addTags([
-          { name: 'og:title', content: this.post.title },
-          { name: 'og:description', content: this.post.subTitle },
-          { name: 'og:image', content: this.post.thumbnail.url },
-          { name: 'og:url', content: window.location.href}
-        ]);
-
       } else {
         this.error = resolvedData.error;
       }

@@ -63,9 +63,10 @@ export class SharePostService {
 
   sharePostMobile(post:PostDetailsDto){
     const shareData = {
-      title: post.title,
-      text: post.subTitle,
+      // title: post.title,
+      // text: post.subTitle,
       url: window.location.href,
+
     }
     navigator.share(shareData)
       .then(() => console.log('Share was successful.'))

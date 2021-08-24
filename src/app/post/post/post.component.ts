@@ -6,6 +6,7 @@ import {SocialMedia} from "../../_models/social-media";
 import {AuthService} from "../../_services/auth.service";
 import {SharePostService} from "../../_services/share-post.service";
 import {ModalService} from "../../commons";
+import {Meta} from "@angular/platform-browser";
 
 @Component({
   selector: 'hc-post',
@@ -26,13 +27,22 @@ export class PostComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
               private sharePostService: SharePostService,
-              public modalService: ModalService) { }
+              public modalService: ModalService,
+              private meta: Meta) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       let resolvedData = data['post'];
       if(resolvedData.data != null) {
         this.post = resolvedData.data;
+
+        this.meta.addTags([
+          { name: 'og:title', content: this.post.title },
+          { name: 'og:description', content: this.post.subTitle },
+          { name: 'og:image', content: this.post.thumbnail.url },
+          { name: 'og:url', content: window.location.href}
+        ]);
+
       } else {
         this.error = resolvedData.error;
       }

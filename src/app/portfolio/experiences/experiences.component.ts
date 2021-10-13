@@ -5,6 +5,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ModalService} from "../../commons";
 import {ProfileService} from "../../_services/profile.service";
 import {ModalComponent} from "../../commons/modal/modal.component";
+import {AngularEditorConfig} from "@kolkov/angular-editor";
 
 @Component({
   selector: 'hc-experiences',
@@ -86,4 +87,33 @@ export class ExperiencesComponent implements OnInit {
     this.addExperienceForm.patchValue(experience);
     this.openModal(modalId);
   }
+  editorConfig: AngularEditorConfig = {
+    toolbarHiddenButtons: [[
+      'heading',
+      'fontName',
+      'subscript',
+      'superscript',
+
+    ], [
+      'insertVideo',
+      'insertImage',
+      'fontSize',
+      'textColor',
+      'htmlCode',
+      'HTMLCode'
+    ]],
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '100',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: false,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultFontSize: "7",
+    sanitize: false
+  };
 }

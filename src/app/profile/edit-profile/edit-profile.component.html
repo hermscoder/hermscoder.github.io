@@ -17,7 +17,6 @@
     </div>
     <div class="form-item">
       <label class="form-label">Birthdate:</label>
-<!--      <hc-date-input [formControlName]="'birthDate'" class="date-input"></hc-date-input>-->
       <input [formControlName]="'birthDate'" class="input-text"/>
     </div>
     <div class="form-item">
@@ -26,7 +25,8 @@
     </div>
     <div class="form-item">
       <label class="form-label">Description:</label>
-      <textarea [formControlName]="'description'" required="true" class="textarea" rows="4" style="max-width: 100%"></textarea>
+<!--      <textarea [formControlName]="'description'" required="true" class="textarea" rows="4" style="max-width: 100%"></textarea>-->
+      <angular-editor [placeholder]="'Enter text here...'" formControlName="description" [config]="editorConfig" class="textarea"></angular-editor>
     </div>
     <div class="form-item">
       <label class="form-label">LinkedIn:</label>

@@ -101,5 +101,15 @@ and (min-width: 961px) {
   .experiences {
     padding: 0px 15%;
   }
+}
 
+.textarea {
+  border: 0px;
+  padding: 0px;
+  font-size: 15px;
+  font-family: 'Lato', 'Arial', sans-serif;
+  border-radius: 5px;
+  transition: all 0.6s;
+  width: var(--default-input-width-percentage);
+  max-width: 100%;
 }

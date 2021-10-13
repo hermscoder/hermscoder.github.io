@@ -8,12 +8,13 @@ import { UploaderComponent } from './uploader/uploader.component';
 import {AppModule} from "../app.module";
 import {DndDirective} from "./directives/dnd.directive";
 import { LoaderComponent } from './loader/loader.component';
+import {AngularEditorModule} from "@kolkov/angular-editor";
 
 
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, AngularEditorModule],
   declarations: [ModalComponent, DropdownComponent, DateInputComponent, UploaderComponent, DndDirective, LoaderComponent],
-    exports: [ModalComponent, DropdownComponent, DateInputComponent, UploaderComponent, DndDirective, LoaderComponent]
+  exports: [ModalComponent, DropdownComponent, DateInputComponent, UploaderComponent, DndDirective, LoaderComponent]
 })
 export class CommonsModule { }

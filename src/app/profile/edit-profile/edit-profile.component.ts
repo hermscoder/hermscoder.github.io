@@ -12,6 +12,7 @@ import {AuthenticationRequest} from "../../_models/authentication-request";
 import {ROUTES} from "../../routes";
 import {first} from "rxjs/operators";
 import {PageScrollService} from "ngx-page-scroll-core";
+import {AngularEditorConfig} from "@kolkov/angular-editor";
 
 @Component({
   selector: 'app-edit-profile',
@@ -79,4 +80,34 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  editorConfig: AngularEditorConfig = {
+    toolbarHiddenButtons: [[
+      'heading',
+      'fontName',
+      'subscript',
+      'superscript',
+
+    ], [
+      'insertVideo',
+      'insertImage',
+      'fontSize',
+      'textColor',
+      'htmlCode',
+      'HTMLCode'
+    ]],
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '100',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: false,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultFontSize: "3",
+    sanitize: false
+  };
 }

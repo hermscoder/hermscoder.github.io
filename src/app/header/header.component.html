@@ -15,12 +15,10 @@
   </a>
   <span class="v-ruler"></span>
   <a title="Login" class="item no-flex" (click)="modalService.open('loginModal')" *ngIf="!authService.isAuthenticated()">
-    Login
+    <span>Login</span>
   </a>
-  <div *ngIf="authService.isAuthenticated()" style="margin-top: 20px">
-    <a title="Options" class="item no-flex" #dropDownToggler>
-      {{authService.currentUser?.name}}
-    </a>
+  <div *ngIf="authService.isAuthenticated()" class="item flex" #dropDownToggler style="max-width: fit-content;">
+    {{authService.currentUser?.name}}
     <hc-dropdown [dropDownToggle]="dropDownToggler" dropDownDirection="left bottom">
       <button class="btn btn-link mb-0 mt-0" [routerLink]="[ROUTES.EDIT_PROFILE.url]">Edit portfolio</button>
       <span class="separator"><hr></span>

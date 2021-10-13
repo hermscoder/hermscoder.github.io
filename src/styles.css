@@ -500,6 +500,19 @@ d-none {
 .w50 {
   width: 50%;
 }
+
+.w25 {
+  width: 25%;
+}
+
+.w10 {
+  width: 10%;
+}
+
+.w5 {
+  width: 5%;
+}
+
 .clickable {
   cursor: pointer;
 }

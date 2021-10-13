@@ -33,12 +33,11 @@
 }
 
 .left {
-  left: -50px;
+  right: 50px;
 }
 
 .bottom {
   top: 0px;
-  margin-top: -15px;
 }
 
 

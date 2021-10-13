@@ -1,7 +1,6 @@
 import {Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 import {ProfileDetailsDto} from "../../_models/profile-details-dto";
 import {ExperienceDto} from "../../_models/experience-dto";
-import {Renderer} from "@angular/compiler-cli/ngcc/src/rendering/renderer";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ModalService} from "../../commons";
 import {ProfileService} from "../../_services/profile.service";

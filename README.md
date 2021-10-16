@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
 
+##Change log
+
+### 3.3.0
+- Changing the build folder to be 'docs/' and generating the new version 3.3 hermscoder - blogfolio Emerson Ribeiro 2 minutes ago
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

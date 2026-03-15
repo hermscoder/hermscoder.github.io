@@ -1,208 +1,257 @@
+
 <!DOCTYPE html>
-<title>Resume</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/casualwriter/casual-markdown/dist/casual-markdown.css">
-<script src="https://cdn.jsdelivr.net/gh/casualwriter/casual-markdown/dist/casual-markdown.js"></script>
-<style>  
-  body { line-height:1.5; margin:auto; padding:3px; max-width:1024px; display:none; FONT-FAMILY:ARIAL; }
-  h1  { font-size:200%; padding:16px; border:1px solid lightgrey; BACKGROUND:STEELBLUE; COLOR:WHITE }
-  h2  { border-bottom:1px solid grey; padding:2px; COLOR:STEELBLUE }
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productize Yourself — AI Prompt Builder</title>
+
+<style>
+body{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    margin:0;
+    background:#0f172a;
+    color:#e5e7eb;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    opacity:0.8;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#111827;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+label{
+    font-weight:600;
+    display:block;
+    margin-bottom:6px;
+}
+
+textarea,input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #374151;
+    background:#020617;
+    color:white;
+    margin-bottom:10px;
+    resize:vertical;
+}
+
+textarea{
+    min-height:80px;
+}
+
+button{
+    background:#6366f1;
+    border:none;
+    padding:14px 20px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    color:white;
+    width:100%;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#4f46e5;
+}
+
+.output{
+    white-space:pre-wrap;
+    background:#020617;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #374151;
+    margin-top:20px;
+}
+
+.copy{
+    background:#10b981;
+    margin-top:10px;
+}
+
+footer{
+    text-align:center;
+    margin-top:40px;
+    opacity:0.6;
+    font-size:14px;
+}
 </style>
-<body onload="document.body.innerHTML=md.html(document.body.innerHTML); document.body.style.display='block';">
-<!--======= COPY ABOVE CODE AS HEADER, THEN FOLLOW WITH RESUME CONTENT IN MARKDOWN FORMAT =========-->
+</head>
 
-<img style="float:right;border-radius:50%;width:70px;padding:6px" src="https://avatars.githubusercontent.com/u/19540700?v=4&size=64" />
+<body>
 
-<span style="float:right;padding:6px;COLOR:WHITE"> 
-  emersonribeiro.dev@gmail.com <br> mobile: +55 34 999081746 <br> Nationality: Brazilian
-</span>
+<div class="container">
 
+<h1>Productize Yourself</h1>
+<div class="subtitle">AI Prompt Builder — Fill the fields and generate your strategy prompt</div>
 
-# EMERSON RIBEIRO
+<div class="card">
+<label>Skills</label>
+<textarea id="skills"></textarea>
 
-## Technical Business Analyst | Solution Design & Integration | FinTech Systems
+<label>Industries You Know</label>
+<textarea id="industries"></textarea>
 
-📍 Uberlândia  
-📱 +5534999081746  
-📧 emersonribeiro.dev@gmail.com  
-🔗 LinkedIn: [https://www.linkedin.com/in/emerson-ribeiro-jr/](https://www.linkedin.com/in/emerson-ribeiro-jr/)
+<label>Interests / Obsessions</label>
+<textarea id="interests"></textarea>
 
-**Languages**  
-Portuguese: Native   
-English: Fluent
+<label>Life Experiences</label>
+<textarea id="experiences"></textarea>
 
-**Certificates**  
-Data Visualization With Power BI - Great Learning (2024)  
-Java Data Structures & Algorithms - Udemy (2023)  
-EF SET English Certificate - EF SET (2023)  
-Kotlin for Java Developers - Udemy (2022)  
-CS50’s Introduction to Programming with Python - CS50 (2022)  
-Oracle Certified Associate, Java SE 8 Programmer - Oracle (2019)  
+<label>Things People Ask You For Help With</label>
+<textarea id="help"></textarea>
 
-## Professional Summary
-System Business Analyst with strong software engineering background in financial technology, combining data-driven insights with deep technical expertise to bridge stakeholder requirements and technical implementation. Experience in analyzing, designing, and implementing payment systems, banking integrations, and high-performance solutions while driving end-to-end delivery and ensuring alignment with business objectives. Proven track record in transforming complex data into actionable insights, optimizing processes through metrics-based analysis, and taking ownership of successful modernization initiatives. Specialized in API design and system integration, with demonstrated ability to lead cross-functional teams through the full product lifecycle - from requirements gathering to UAT execution. Strong focus on quality assurance and delivery excellence, ensuring thorough test coverage and successful feature implementation through comprehensive acceptance criteria and stakeholder validation.
+<label>Technical Skills</label>
+<textarea id="tech"></textarea>
 
-## Professional Experience
+<label>Audience / Platforms</label>
+<textarea id="audience"></textarea>
 
-### System Business Analyst
-**ITMAGINATION** | Remote
-*07/2022 - Present*
+<label>Network / Team</label>
+<textarea id="network"></textarea>
 
-Led requirements analysis and system design initiatives in the payment sector, focusing on translating complex business needs into actionable technical solutions.
+<label>Financial Resources</label>
+<textarea id="money"></textarea>
 
-**Key Responsibilities & Achievements:**
+<label>AI Tools You Can Use</label>
+<textarea id="ai"></textarea>
 
-* Spearheaded requirement gathering sessions with stakeholders, transforming complex business needs into detailed technical specifications and implementing them using Kotlin and Quarkus
+<label>Available Hours Per Week</label>
+<input id="hours">
 
-* Designed and documented payment processing workflows using Mermaid diagrams, significantly improving stakeholder understanding of business processes and reducing the need for clarification meetings
+<label>Current Job / Business</label>
+<textarea id="job"></textarea>
 
-* Analyzed business requirements and implemented API integrations, creating comprehensive documentation with Swagger and developing endpoints that handle high-volume transaction processing
+<label>Target Audience You Like Helping</label>
+<textarea id="target"></textarea>
 
-* Designed database schemas based on business requirements, implementing both SQL (PostgreSQL) and NoSQL (Couchbase) solutions to meet specific business needs and performance criteria
+<button onclick="generatePrompt()">Generate AI Prompt</button>
 
-* Created comprehensive API documentation and integration guides using Swagger, enabling business stakeholders to better understand system capabilities and streamlining the integration process
+</div>
 
-* Facilitated bi-weekly workshops between business and development teams to validate requirements and ensure alignment with business objectives
+<div class="card">
+<h2>Your Generated Prompt</h2>
+<div id="result" class="output"></div>
+<button class="copy" onclick="copyPrompt()">Copy Prompt</button>
+</div>
 
-* Established standardized templates for business requirements documentation, substantially reducing requirement clarification cycles and improving project efficiency
+<footer>
+Built for the “Productize Yourself” workflow • Paste the prompt into ChatGPT / Claude
+</footer>
 
-* Analyzed and implemented integration requirements for banking systems, developing SFTP connectors and RESTful APIs that comply with business rules
+</div>
 
-* Collaborated with QA team to create comprehensive test scenarios based on business acceptance criteria, ensuring thorough coverage of requirements
+<script>
 
-**Tools & Methodologies:**
-- Business Process Modeling
-- Requirements Documentation
-- Stakeholder Management
-- Kotlin/Quarkus Development
-- API Design & Development
-- Database Design
-- SQL & NoSQL Solutions
-- Github Workflows
-- Agile/Scrum
-- JIRA
-- Mermaid
-- Swagger
+function generatePrompt(){
 
----
+let prompt = `You are a startup strategist applying Naval Ravikant’s principles of Specific Knowledge and Leverage.
 
-### Technical Business Analyst
-**eDreams ODIGEO** | Porto, Portugal  
-*08/2021 - 07/2022*
+Use the user inputs to design a scalable one-person business strategy.
 
-Analyzed and optimized high-volume flight booking systems handling 100k+ requests per minute, focusing on business process improvement and system performance optimization.
+--------------------------------
 
-**Key Responsibilities & Achievements:**
+USER PROFILE
 
-* Analyzed and implemented performance optimization initiatives for flight search systems, utilizing Kafka event streaming, Redis caching, and Cloud Bigtable for data storage to achieve significant response time improvements
+Skills:
+${skills.value}
 
-* Designed and implemented real-time inventory system architecture, combining business requirements with technical solutions using scheduled tasks and event-driven architecture
+Industries:
+${industries.value}
 
-* Created detailed data flow diagrams and system architecture documentation using monitoring tools (Datadog, Grafana, Kibana), translating complex technical metrics into business insights
+Interests:
+${interests.value}
 
-* Implemented cloud-based solutions on Google Cloud Platform, managing service deployment through Kubernetes orchestration to meet scalability requirements
+Life Experiences:
+${experiences.value}
 
-* Implemented data visualization dashboards in Grafana for business KPIs, enabling real-time monitoring of system performance
+Things People Ask Me For Help With:
+${help.value}
 
-* Designed and documented API integrations using Swagger, ensuring clear communication between business requirements and technical implementation while maintaining system performance
+Technical Skills:
+${tech.value}
 
-**Tools & Methodologies:**
-- Business Process Analysis
-- System Performance Analysis
-- Cloud Architecture (GCP, Kubernetes)
-- Event Streaming (Kafka)
-- Monitoring & Analytics (Datadog, Grafana, Kibana)
-- API Design & Documentation
-- Requirements Analysis and Documentation
-- Stakeholder Management
-- KPI Monitoring
-- Agile/Scrum
-- Java 11
+Audience / Platforms:
+${audience.value}
 
----
+Network / Team:
+${network.value}
 
-### Integration Engineer
-**Aubay Portugal** | Porto, Portugal  
-*02/2021 - 08/2021*
+Financial Resources:
+${money.value}
 
-Specialized in analyzing, designing, and implementing integration solutions for financial institutions, bridging modern banking systems with legacy mainframe services using microservices architecture.
+AI Tools Available:
+${ai.value}
 
-**Key Responsibilities & Achievements:**
+Hours Available Per Week:
+${hours.value}
 
-* Conducted analysis of banking processes and implemented middleware solutions using Spring Boot and Spring Cloud, ensuring seamless communication between modern and legacy systems
+Current Job or Business:
+${job.value}
 
-* Gathered requirements from banking stakeholders and implemented microservices-based solutions using Java 11, translating business needs into scalable technical architectures
+Target Audience:
+${target.value}
 
-* Collect complex business requirements from banking stakeholders, translating them into detailed functional specifications for middleware development
+--------------------------------
 
-* Created comprehensive integration mapping documents, detailing data transformations between modern and legacy banking systems
+TASKS
 
-* Developed RESTful APIs using Spring Framework and IBM Connect, ensuring compliance with banking regulations while maintaining system performance
+1. Identify my Specific Knowledge Intersections
+2. Evaluate leverage options: Code, Media, Capital, Labor
+3. Suggest 10 scalable business opportunities
+4. Analyze the top 3 ideas
+5. Design productized versions
+6. Create a One‑Person Startup Architecture
+7. Build‑in‑Public content strategy
+8. 12‑month roadmap
+9. Naval retirement test
 
-* Collaborated with multiple stakeholders to understand and document compliance requirements for financial data handling and processing
+Return sections:
 
-* Analyzed data storage requirements and implemented optimized database solutions using HBase and PostgreSQL, ensuring efficient handling of banking transactions while meeting strict financial data retention policies
+1. Specific Knowledge
+2. Leverage Analysis
+3. Opportunity List
+4. Best Business Idea
+5. Productization Strategy
+6. One‑Person Startup Design
+7. Content Engine
+8. 12‑Month Plan
+9. Retirement Test Score`
 
-* Created and maintained data visualization reports for business stakeholders, translating complex technical metrics into actionable business insights
+document.getElementById("result").textContent = prompt
+}
 
-* Established CI/CD pipelines using GOCD for deployment to OpenShift platform, aligning deployment processes with business release requirements
+function copyPrompt(){
 
-* Analyzed business reporting requirements and developed SQL-based data visualization reports, transforming complex banking data into actionable insights through proprietary visualization solutions
+let text = document.getElementById("result").textContent
 
-* Led requirement validation sessions with banking clients to ensure all business needs were accurately captured and implemented
+navigator.clipboard.writeText(text)
 
-**Tools & Methodologies:**
-- Business Process Analysis
-- Requirements Documentation
-- Integration Mapping
-- Financial Data Analysis
-- Stakeholder Management
-- Banking Systems Integration
-- Data Visualization
-- Regulatory Compliance
-- Microservices Architecture
-- Spring Boot/Cloud Framework
-- Java 11
-- API Design & Implementation
-- CI/CD (GOCD, OpenShift)
+alert("Prompt copied! Paste it into your AI.")
+}
 
---- 
-### Fullstack Software Engineer
-**everis** | Uberlândia, Brazil  
-*06/2020 - 02/2021*
+</script>
 
-Major modernization project at ITAÚ Bank, focusing on transforming legacy mainframe systems into modern web applications while ensuring business continuity and process improvement.
-
-**Key Responsibilities & Achievements:**
-
-
-* Conducted extensive analysis of existing mainframe processes and business rules, creating detailed documentation of current-state workflows and identifying optimization opportunities
-
-* Facilitated requirements gathering sessions with bank stakeholders to understand pain points and desired improvements in their daily operations
-
-* Created detailed mapping documents between legacy mainframe processes and new web application features, ensuring no business functionality was lost during modernization
-
-* Developed technical specifications and architectural diagrams showing the transformation from monolithic mainframe to distributed systems, helping stakeholders understand the modernization benefits
-
-* Conducted impact analysis for each phase of the modernization project, identifying potential risks and proposing mitigation strategies
-
-* Analyzed mainframe business processes and implemented corresponding features in Angular 7, ensuring critical banking operations were accurately translated to the modern platform
-
-* Designed and implemented Spring Cloud microservices architecture to replace mainframe functionalities, utilizing Spring Boot, Feign clients, and circuit breakers to ensure robust handling of banking operations
-
-* Collaborated with UX team to ensure new interfaces met user requirements while maintaining all necessary business functionality
-
-* Analyzed legacy data structures and implemented modern database architecture using PostgreSQL, ensuring complex banking business rules and relationships were preserved while optimizing query performance and maintainability
-
-**Tools & Methodologies:**
-- Business Process Mapping
-- Legacy System Analysis
-- Requirements Documentation
-- Process Optimization
-- Change Management
-- User Journey Mapping
-- Stakeholder Management
-- Impact Analysis
-- User Journey Mapping
-- Java 11 and Spring Framework
-- Angular 7
+</body>
+</html>
